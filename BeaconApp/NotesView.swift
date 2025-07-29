@@ -12,7 +12,7 @@ struct NotesView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Journaling")
+            Text("Journal ✏️")
                 .font(.largeTitle)
                 .fontWeight(.bold)
                 .padding(.top)
@@ -22,25 +22,26 @@ struct NotesView: View {
 
             ZStack(alignment: .topLeading) {
                 if notesText.isEmpty {
-                    Text("Type your notes here...")
+                    Text("Type your thoughts, feelings, or anything that you want to remember...")
                         .foregroundColor(.gray)
                         .padding(8)
                 }
 
                 TextEditor(text: $notesText)
-                    .padding(8)
-                    .background(Color.white)
+                    .padding(4)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(Color.gray.opacity(3.5))
+                    )
             }
-            .frame(height: 700)
-            .overlay(
-                RoundedRectangle(cornerRadius: 8)
-                    .stroke(Color.gray.opacity(0.5), lineWidth: 1)
-            )
+            .padding()
+
+            Spacer()
         }
         .padding()
-        .background(Color(UIColor.systemGroupedBackground))
     }
 }
+
 
 
 #Preview {
