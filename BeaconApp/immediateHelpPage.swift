@@ -12,7 +12,16 @@ struct immediateHelpPage: View {
         
         NavigationStack{
             
+            
+            
             VStack {
+                
+                Text("Beacon")
+                    .font(.largeTitle)
+                    .bold()
+                    .multilineTextAlignment(.center)
+                
+                Spacer()
                 
                 Text("Need Immediate Help? You are not alone. We are here for you.")
                     .bold()
@@ -35,6 +44,7 @@ struct immediateHelpPage: View {
                 
                 NavigationLink(destination: ContentView()){
                     Text("Return to Home")
+                    
                 }
                 
             }
