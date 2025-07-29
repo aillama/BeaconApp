@@ -29,6 +29,13 @@ struct Home: View {
                     Text("🙂")
                         .font(.title3)
                 }
+                .padding()
+                .background(
+                  RoundedRectangle(cornerRadius: 10)
+                    .stroke(.black, lineWidth: 2)
+                    .shadow(color: .pink, radius: 6, y: 5)
+                  )
+                
                 }
             Spacer()
             Button {
@@ -40,6 +47,12 @@ struct Home: View {
                     Text("☹️")
                         .font(.title3)
                 }
+                .padding()
+                .background(
+                  RoundedRectangle(cornerRadius: 10)
+                    .stroke(.black, lineWidth: 2)
+                    .shadow(color: .pink, radius: 6, y: 5)
+                  )
                 }
             Spacer()
             Button {
@@ -51,6 +64,12 @@ struct Home: View {
                     Text("😰")
                         .font(.title3)
                 }
+                .padding()
+                .background(
+                  RoundedRectangle(cornerRadius: 10)
+                    .stroke(.black, lineWidth: 2)
+                    .shadow(color: .pink, radius: 6, y: 5)
+                  )
             }
             Spacer()
             Button {
@@ -62,6 +81,12 @@ struct Home: View {
                     Text("😡")
                         .font(.title3)
                 }
+                .padding()
+                .background(
+                  RoundedRectangle(cornerRadius: 10)
+                    .stroke(.black, lineWidth: 2)
+                    .shadow(color: .pink, radius: 6, y: 5)
+                  )
             }
             Spacer()
             Button {
@@ -73,6 +98,12 @@ struct Home: View {
                     Text("😴")
                         .font(.title3)
                 }
+                .padding()
+                .background(
+                  RoundedRectangle(cornerRadius: 10)
+                    .stroke(.black, lineWidth: 2)
+                    .shadow(color: .pink, radius: 6, y: 5)
+                  )
             }
             Spacer()
             Button {
@@ -84,6 +115,12 @@ struct Home: View {
                     Text("🆘")
                         .font(.title3)
                 }
+                .padding()
+                .background(
+                  RoundedRectangle(cornerRadius: 10)
+                    .stroke(.black, lineWidth: 2)
+                    .shadow(color: .pink, radius: 6, y: 5)
+                  )
             }
             Spacer()
             }
