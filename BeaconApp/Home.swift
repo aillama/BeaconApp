@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+
 struct Home: View {
     var body: some View {
+        
         VStack {
             Text("beacon")
                 .font(.system(size: 40))
@@ -16,7 +18,15 @@ struct Home: View {
         }
         .padding()
         
+        HStack{
+            Text("Hello, name)! How are you today?")
+                .multilineTextAlignment(.leading)
+        }
+        .padding()
+        
+        
 //how to adjust space between buttons?
+//idea - making a function that hold all the button formatting (since it's the same for all of them) and then calling that function would make the code neater
         
         VStack(alignment: .center) {
             Spacer()
@@ -33,7 +43,7 @@ struct Home: View {
                 .background(
                   RoundedRectangle(cornerRadius: 10)
                     .stroke(.black, lineWidth: 2)
-                    .shadow(color: .pink, radius: 6, y: 5)
+                    .frame(width: 100, height: 60)
                   )
                 
                 }
@@ -51,7 +61,7 @@ struct Home: View {
                 .background(
                   RoundedRectangle(cornerRadius: 10)
                     .stroke(.black, lineWidth: 2)
-                    .shadow(color: .pink, radius: 6, y: 5)
+                    .frame(width: 100, height: 60)
                   )
                 }
             Spacer()
@@ -68,7 +78,7 @@ struct Home: View {
                 .background(
                   RoundedRectangle(cornerRadius: 10)
                     .stroke(.black, lineWidth: 2)
-                    .shadow(color: .pink, radius: 6, y: 5)
+                    .frame(width: 100, height: 60)
                   )
             }
             Spacer()
@@ -85,7 +95,7 @@ struct Home: View {
                 .background(
                   RoundedRectangle(cornerRadius: 10)
                     .stroke(.black, lineWidth: 2)
-                    .shadow(color: .pink, radius: 6, y: 5)
+                    .frame(width: 100, height: 60)
                   )
             }
             Spacer()
@@ -102,7 +112,7 @@ struct Home: View {
                 .background(
                   RoundedRectangle(cornerRadius: 10)
                     .stroke(.black, lineWidth: 2)
-                    .shadow(color: .pink, radius: 6, y: 5)
+                    .frame(width: 100, height: 60)
                   )
             }
             Spacer()
@@ -110,7 +120,7 @@ struct Home: View {
                 
             } label: {
                 VStack{
-                    Text("SOS NOW")
+                    Text("SOS")
                         .font(.title3)
                     Text("🆘")
                         .font(.title3)
@@ -119,12 +129,13 @@ struct Home: View {
                 .background(
                   RoundedRectangle(cornerRadius: 10)
                     .stroke(.black, lineWidth: 2)
-                    .shadow(color: .pink, radius: 6, y: 5)
+                    .frame(width: 100, height: 60)
                   )
             }
             Spacer()
             }
         .padding()
+        
     }
 }
 
