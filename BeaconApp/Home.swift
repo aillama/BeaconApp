@@ -18,6 +18,20 @@ struct Home: View {
             
             ZStack {
                 
+                RadialGradient(
+                    colors: [
+                        Color("lightpurple").opacity(0.9),
+                        Color("lightblue").opacity(0.9),
+                        Color("lightgreen").opacity(0.9),
+                        Color("lightyellow").opacity(0.9),
+                        Color("lightpink").opacity(0.9)
+                    ],
+                    center: .topLeading,
+                    startRadius: 845,
+                    endRadius: 111
+                )
+                .ignoresSafeArea()
+                
                 VStack {
                     Text("beacon")
                         .font(.system(size: 44, weight: .heavy, design: .rounded))
@@ -52,6 +66,7 @@ struct Home: View {
                             VStack{
                                 Text("happy")
                                     .font(.title3)
+                                    .foregroundColor(Color.black)
                                 Text("🙂")
                                     .font(.title3)
                             }
@@ -60,6 +75,8 @@ struct Home: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 2)
                                     .frame(width: 100, height: 60)
+                                    .background(Color(.white))
+                                    .cornerRadius(10)
                             )
                             
                         }
@@ -73,6 +90,7 @@ struct Home: View {
                             VStack{
                                 Text("sad")
                                     .font(.title3)
+                                    .foregroundColor(Color.black)
                                 Text("☹️")
                                     .font(.title3)
                             }
@@ -81,6 +99,8 @@ struct Home: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 2)
                                     .frame(width: 100, height: 60)
+                                    .background(Color(.white))
+                                    .cornerRadius(10)
                             )
                         }
                         
@@ -90,6 +110,7 @@ struct Home: View {
                             VStack{
                                 Text("stressed")
                                     .font(.title3)
+                                    .foregroundColor(Color.black)
                                 Text("😰")
                                     .font(.title3)
                             }
@@ -98,6 +119,8 @@ struct Home: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 2)
                                     .frame(width: 100, height: 60)
+                                    .background(Color(.white))
+                                    .cornerRadius(10)
                             )
                         }
                         
@@ -107,6 +130,7 @@ struct Home: View {
                             VStack{
                                 Text("angry")
                                     .font(.title3)
+                                    .foregroundColor(Color.black)
                                 Text("😡")
                                     .font(.title3)
                             }
@@ -115,6 +139,8 @@ struct Home: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 2)
                                     .frame(width: 100, height: 60)
+                                    .background(Color(.white))
+                                    .cornerRadius(10)
                             )
                         }
                         
@@ -124,6 +150,7 @@ struct Home: View {
                             VStack{
                                 Text("tired")
                                     .font(.title3)
+                                    .foregroundColor(Color.black)
                                 Text("😴")
                                     .font(.title3)
                             }
@@ -132,6 +159,8 @@ struct Home: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 2)
                                     .frame(width: 100, height: 60)
+                                    .background(Color(.white))
+                                    .cornerRadius(10)
                             )
                         }
                         
@@ -141,6 +170,7 @@ struct Home: View {
                             VStack{
                                 Text("SOS")
                                     .font(.title3)
+                                    .foregroundColor(Color.black)
                                 Text("🆘")
                                     .font(.title3)
                             }
@@ -149,6 +179,8 @@ struct Home: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 2)
                                     .frame(width: 100, height: 60)
+                                    .background(Color(.white))
+                                    .cornerRadius(10)
                             )
                         }
                         

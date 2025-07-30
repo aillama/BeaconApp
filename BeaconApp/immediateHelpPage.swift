@@ -16,13 +16,7 @@ struct immediateHelpPage: View {
                     .ignoresSafeArea()
                 
                 
-                VStack(spacing: 30) {
-                    Text("Beacon")
-                        .foregroundStyle(Color.black)
-                        .font(.largeTitle)
-                        .bold()
-                        .multilineTextAlignment(.center)
-                        .padding([.top], 60)
+               
                     
                     
                     VStack(spacing: 50) {
