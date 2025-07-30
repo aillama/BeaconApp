@@ -11,37 +11,39 @@ struct NotesView: View {
     @State private var notesText = ""
 
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Journal ✏️")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding(.top)
-                .frame(maxWidth: .infinity, alignment: .center)
+        ZStack {
+            
+            LinearGradient(
+                gradient: Gradient(colors: [.pink, .yellow, .blue]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
 
-            Spacer()
+            VStack(alignment: .leading) {
+                Text("Journal 🌟")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color.white)
+                    .padding(.top)
+                    .frame(maxWidth: .infinity, alignment: .center)
 
-            ZStack(alignment: .topLeading) {
-                if notesText.isEmpty {
-                    Text("Type your thoughts, feelings, or anything that you want to remember...")
-                        .foregroundColor(.gray)
-                        .padding(8)
-                }
-
+                Spacer()
                 TextEditor(text: $notesText)
-                    .padding(4)
+                    .padding()
+                    .frame(height: 670)
+                    .background(Color.white.opacity(0.1))
+                    .cornerRadius(10)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 20)
-                            .stroke(Color.gray.opacity(3.5))
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.white.opacity(0.5), lineWidth: 1)
                     )
+                    .foregroundColor(.black)
             }
             .padding()
-
-            Spacer()
         }
-        .padding()
     }
 }
-
 
 
 #Preview {
