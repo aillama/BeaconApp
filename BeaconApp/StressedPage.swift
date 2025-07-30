@@ -14,6 +14,7 @@ struct StressedPage: View {
     
     @State private var currentQuote = ""
     @State private var showQuote = false
+    //@EnvironmentObject var sharedData: sharedData
     
     var body: some View {
     
@@ -35,18 +36,20 @@ struct StressedPage: View {
             ScrollView {
                 VStack(alignment: .center, spacing: 25) {
                     
-                    Text("beacon")
-                        .font(.system(size: 44, weight: .heavy, design: .rounded))
-                        .foregroundColor(.white)
-                        .padding(.vertical, 15)
-                        .padding(.horizontal, 60)
-                        .background(
-                            Color.black.opacity(0.6)
-                                .cornerRadius(25)
-                                .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
-                        )
-                        .padding(.top, 30)
-                        .frame(maxWidth: .infinity)
+                    NavigationLink (destination: Home()) {
+                        Text("beacon")
+                            .font(.system(size: 44, weight: .heavy, design: .rounded))
+                            .foregroundColor(.white)
+                            .padding(.vertical, 15)
+                            .padding(.horizontal, 60)
+                            .background(
+                                Color.black.opacity(0.6)
+                                    .cornerRadius(25)
+                                    .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+                            )
+                            .padding(.top, 30)
+                            .frame(maxWidth: .infinity)
+                    }
                     
                     Text("Feeling overwhelmed? Let's take a moment.")
                         .font(.system(.body, design: .rounded))
@@ -161,6 +164,7 @@ struct StressedPage: View {
 #Preview {
     NavigationStack{
         StressedPage()
+            //.environmentObject(sharedData()) // <- Inject dummy data for preview (from ChatGPT)
     }
 }
 
