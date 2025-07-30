@@ -26,8 +26,8 @@ struct welcomePage: View {
                 
                 RadialGradient(
                     colors: [
-                        Color(.yellow),
-                        Color(.pink)
+                        Color(.lightyellow).opacity(0.9),
+                        Color(.lightpink)
                     ],
                     center: .topLeading,
                     startRadius: 845,
@@ -36,8 +36,24 @@ struct welcomePage: View {
                 .ignoresSafeArea()
                 
                 VStack{
+                    
+                    Text("beacon")
+                        .font(.system(size: 44, weight: .heavy, design: .rounded))
+                        .foregroundColor(.white)
+                        .padding(.vertical, 15)
+                        .padding(.horizontal, 60)
+                        .background(
+                            Color.black.opacity(0.8)
+                                .cornerRadius(25)
+                                .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+                        )
+                        .padding(.top, 3)
+                        .frame(maxWidth: .infinity)
+                    
+                    Spacer()
+                    
                     Text("Hello! What is your name?")
-                        .font(.title2)
+                        .font(.title)
                         //.background(Color(.white))
                         //.cornerRadius(15)
                     
@@ -71,6 +87,8 @@ struct welcomePage: View {
                     .navigationDestination(isPresented: $navigate) {
                         Home()
                     }
+                    
+                    Spacer()
                 }
                 
             }
