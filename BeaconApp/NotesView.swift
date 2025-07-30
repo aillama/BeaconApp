@@ -50,8 +50,8 @@ struct NotesView: View {
                                      .background(Color.white.opacity(0.1))
                                      .cornerRadius(10)
                                      .overlay(
-                                         RoundedRectangle(cornerRadius: 10)
-                                             .stroke(Color.white.opacity(0.5), lineWidth: 1)
+                                         RoundedRectangle(cornerRadius: 5)
+                                            .stroke(Color.white.opacity(0.5), lineWidth:1.5)
                                      )
                                      .foregroundColor(.black)
                                      .padding()
