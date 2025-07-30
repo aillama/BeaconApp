@@ -9,6 +9,8 @@ import SwiftUI
 
 
 struct Home: View {
+    @EnvironmentObject var sharedData: sharedData
+    
     var body: some View {
         
         VStack {
@@ -19,7 +21,7 @@ struct Home: View {
         .padding()
         
         HStack{
-            Text("Hello, name)! How are you today?")
+            Text("Hello, \(sharedData.name)! How are you today?")
                 .multilineTextAlignment(.leading)
         }
         .padding()
@@ -141,4 +143,5 @@ struct Home: View {
 
 #Preview {
     Home()
+        .environmentObject(sharedData()) // <- Inject dummy data for preview (from ChatGPT)
 }
