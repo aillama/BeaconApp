@@ -51,7 +51,7 @@ struct StressedPage: View {
                         .foregroundColor(Color(red: 0.05, green: 0.07, blue: 0.1))
                         .multilineTextAlignment(.center)
                         .padding()
-                    
+                    VStack(alignment: .center, spacing: 15) {
                     VStack(alignment: .center, spacing: 15) {
                         Text("**You matter.** This feeling won't last forever.")
                             .font(.body)
@@ -61,7 +61,7 @@ struct StressedPage: View {
                             .font(.headline)
                             .frame(maxWidth: .infinity, alignment: .center)
                         
-                        VStack(alignment: .center, spacing: 15) {
+                        
                             VStack(alignment: .leading, spacing: 0) {
                                 Text("📵  Step away from your screen for 5")
                                 Text("       minutes")
@@ -147,8 +147,8 @@ struct StressedPage: View {
     }
 }
 
-struct StressedPage_Previews: PreviewProvider {
-    static var previews: some View {
-        StressedPage()
-    }
+#Preview {
+    SadPage()
 }
+
+
