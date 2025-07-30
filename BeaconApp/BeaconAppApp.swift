@@ -13,7 +13,7 @@ struct BeaconAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            welcomePage()
                 .environmentObject(SharedData)
         }
     }

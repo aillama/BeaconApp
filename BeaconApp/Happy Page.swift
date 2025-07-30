@@ -135,7 +135,23 @@ struct HappyPage: View {
                             
                             
                             VStack(spacing: 15) {
-                                Text("Need to write something down?")
+                                NavigationLink(destination: NotesView()) {
+                                    Text("Need to write something down?")
+                                        .font(.headline)
+                                        .padding()
+                                        .frame(maxWidth: .infinity)
+                                        .background(Color.white.opacity(0.9))
+                                        .foregroundColor(Color(red: 0.48, green: 0.39, blue: 0.13))
+                                    
+                                    
+                                    
+                                        .cornerRadius(15)
+                                        .padding(.horizontal)
+                                }
+                                
+                                
+                                
+                                Text("Need more support?")
                                     .font(.headline)
                                     .padding()
                                     .frame(maxWidth: .infinity)
@@ -146,26 +162,13 @@ struct HappyPage: View {
                                 
                                     .cornerRadius(15)
                                     .padding(.horizontal)
+                                    .multilineTextAlignment(.center)
                             }
-                            
-                            
-                            Text("Need more support?")
-                                .font(.headline)
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color.white.opacity(0.9))
-                                .foregroundColor(Color(red: 0.48, green: 0.39, blue: 0.13))
-                            
-                            
-                            
-                                .cornerRadius(15)
-                                .padding(.horizontal)
-                                .multilineTextAlignment(.center)
-                        }
-                        .padding()
-                        .onAppear {
-                            currentQuote = quotes.randomElement() ?? ""
-                            showQuote = true
+                            .padding()
+                            .onAppear {
+                                currentQuote = quotes.randomElement() ?? ""
+                                showQuote = true
+                            }
                         }
                     }
                 }
