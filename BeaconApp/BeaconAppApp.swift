@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct BeaconAppApp: App {
+    @StateObject private var SharedData = sharedData()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(SharedData)
         }
     }
 }
