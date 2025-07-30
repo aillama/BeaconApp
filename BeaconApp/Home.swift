@@ -10,7 +10,7 @@ import SwiftUI
 
 struct Home: View {
     @EnvironmentObject var sharedData: sharedData
-    @State private var show
+    @State private var showHappyPage = false
     
     var body: some View {
         
@@ -44,8 +44,10 @@ struct Home: View {
                     
                     VStack(alignment: .center) {
                         
+                        
+                    //this is the way to link different pages/views with a button: set a state variable before in the struct and set it to false, in button actions make it true, and then use the navigation destination feature under the button
                         Button {
-                            
+                            showHappyPage = true
                         } label: {
                             VStack{
                                 Text("happy")
@@ -58,14 +60,16 @@ struct Home: View {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(.black, lineWidth: 2)
                                     .frame(width: 100, height: 60)
-                                
                             )
                             
                         }
+                        .navigationDestination(isPresented: $showHappyPage) {
+                                                Happy_Page()
+                                            }
                         Spacer()
-                        Button {
-                            
-                        } label: {
+                        
+                        //this is the way to link different pages/views using a navigation link; kinda acts like a button, easier if the buttons only action is to go to another page
+                        NavigationLink(destination: SadPage()) {
                             VStack{
                                 Text("sad")
                                     .font(.title3)
@@ -79,10 +83,10 @@ struct Home: View {
                                     .frame(width: 100, height: 60)
                             )
                         }
+                        
                         Spacer()
-                        Button {
-                            
-                        } label: {
+                        
+                        NavigationLink(destination: StressedPage()) {
                             VStack{
                                 Text("stressed")
                                     .font(.title3)
@@ -96,10 +100,10 @@ struct Home: View {
                                     .frame(width: 100, height: 60)
                             )
                         }
+                        
                         Spacer()
-                        Button {
-                            
-                        } label: {
+                        
+                        NavigationLink(destination: AngryPage()) {
                             VStack{
                                 Text("angry")
                                     .font(.title3)
@@ -113,10 +117,10 @@ struct Home: View {
                                     .frame(width: 100, height: 60)
                             )
                         }
+                        
                         Spacer()
-                        Button {
-                            
-                        } label: {
+                        
+                        NavigationLink (destination: TiredPage()) {
                             VStack{
                                 Text("tired")
                                     .font(.title3)
@@ -130,10 +134,10 @@ struct Home: View {
                                     .frame(width: 100, height: 60)
                             )
                         }
+                        
                         Spacer()
-                        Button {
-                            
-                        } label: {
+                        
+                        NavigationLink (destination: immediateHelpPage()) {
                             VStack{
                                 Text("SOS")
                                     .font(.title3)
@@ -147,6 +151,7 @@ struct Home: View {
                                     .frame(width: 100, height: 60)
                             )
                         }
+                        
                         Spacer()
                     }
                     .padding()
