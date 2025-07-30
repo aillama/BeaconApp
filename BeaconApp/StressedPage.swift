@@ -16,6 +16,9 @@ struct StressedPage: View {
     @State private var showQuote = false
     
     var body: some View {
+    
+        NavigationStack{
+        
         ZStack {
             
             LinearGradient(
@@ -52,16 +55,16 @@ struct StressedPage: View {
                         .multilineTextAlignment(.center)
                         .padding()
                     VStack(alignment: .center, spacing: 15) {
-                    VStack(alignment: .center, spacing: 15) {
-                        Text("**You matter.** This feeling won't last forever.")
-                            .font(.body)
-                            .multilineTextAlignment(.center)
-                        
-                        Text("5 Quick Tips:")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity, alignment: .center)
-                        
-                        
+                        VStack(alignment: .center, spacing: 15) {
+                            Text("**You matter.** This feeling won't last forever.")
+                                .font(.body)
+                                .multilineTextAlignment(.center)
+                            
+                            Text("5 Quick Tips:")
+                                .font(.headline)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                            
+                            
                             VStack(alignment: .leading, spacing: 0) {
                                 Text("📵  Step away from your screen for 5")
                                 Text("       minutes")
@@ -84,7 +87,7 @@ struct StressedPage: View {
                                 .font(.headline)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color(red: 0.05, green: 0.07, blue: 0.1))
-                                
+                            
                             
                             Text(currentQuote)
                                 .font(.body)
@@ -112,34 +115,39 @@ struct StressedPage: View {
                                     .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
                             }
                             
-                            VStack(spacing: 15) {
-                                Text("Need to write something down?")
+
+                                
+                                NavigationLink(destination: NotesView()) {
+                                        Text("Need to write something up?")
+                                            .font(.headline)
+                                            .padding()
+                                            .frame(maxWidth: .infinity)
+                                            .background(Color.white.opacity(0.9))
+                                            .foregroundColor(Color(red: 0.25, green: 0.45, blue: 0.3))
+                                            .cornerRadius(15)
+                                            .padding(.horizontal)
+                                            .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
+                                    }
+                                
+                                
+                                Text("Need more support?")
                                     .font(.headline)
                                     .padding()
                                     .frame(maxWidth: .infinity)
                                     .background(Color.white.opacity(0.9))
                                     .foregroundColor(Color(red: 0.25, green: 0.45, blue: 0.3))
-
+                                
                                     .cornerRadius(15)
                                     .padding(.horizontal)
-                            }
+                                    .multilineTextAlignment(.center)
                             
-                            Text("Need more support?")
-                                .font(.headline)
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color.white.opacity(0.9))
-                                .foregroundColor(Color(red: 0.25, green: 0.45, blue: 0.3))
-
-                                .cornerRadius(15)
-                                .padding(.horizontal)
-                                .multilineTextAlignment(.center)
                         }
                         .padding()
                         .onAppear {
                             currentQuote = quotes.randomElement() ?? ""
                             showQuote = true
                         }
+                    }
                     }
                 }
             }
@@ -148,7 +156,9 @@ struct StressedPage: View {
 }
 
 #Preview {
-    SadPage()
+    NavigationStack{
+        SadPage()
+    }
 }
 
 
