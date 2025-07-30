@@ -1,8 +1,16 @@
 import SwiftUI
 
-struct SadPage: View {
+struct StressedPage: View {
     
-    let quotes = ["Sadness flies away on the wings of time.", "Don't grieve. Anything you lose comes round in another form.", "The word happy would lose its meaning if it were not balanced with sadness.", "To be wronged is nothing unless you continue to remember it.", "Every person has their secret sorrows which the world knows not.", "Every situation in life is temporary.", "The hard days make you stronger and the bad days help you realize what a good day is." ]
+    let quotes = [
+        "Don't worry about things that you can't control.",
+        "You can do anything, but not everything.",
+        "The greatest weapon against stress is our ability to choose one thought over another.",
+        "Don't worry about things you can't control.",
+        "This too shall pass.",
+        "Breathe in calm, breathe out stress.",
+        "When the going gets tough, the tough gets going."
+    ] //this is the random quote array
     
     @State private var currentQuote = ""
     @State private var showQuote = false
@@ -16,12 +24,12 @@ struct SadPage: View {
                     .foregroundColor(.primary)
                     .padding(.horizontal)
                 
-                Text("It's okay to feel down sometimes. Take things at your own pace.")
+                Text("Feeling overwhelmed? Let's take a moment.")
                     .multilineTextAlignment(.center)
                     .padding(.horizontal)
                 
-                VStack(alignment: .center, spacing:15){
-                    Text("**You matter.** This feeling won't last forever.")
+                VStack(alignment: .leading, spacing:15){
+                    Text("**You're doing your best.** Take everything one step at a time.")
                         .font(.body)
                         .foregroundColor(.primary)
                         .padding(.bottom)
@@ -29,17 +37,18 @@ struct SadPage: View {
                     Text("5 Quick Tips:")
                         .font(.headline)
                     
-                    Text("🧘  Take some time for you to rest")
+                    Text("🚶‍♀️  Take a short walk outside")
                     
                     VStack(alignment: .leading, spacing: 0) {
-                        Text("📵  Call someone who will support you")
+                        Text("📵  Step away from your screen for 5")
+                        Text("       minutes")
                     }
                     
-                    Text("🤸  Do some light exercise")
-                    Text("🎨  Spend time on an activity you enjoy")
+                    Text("🏃‍♀️  Do some light exercise")
+                    Text("🌟  Write a list of positive affirmations")
                     
                     
-                        Text("✍️  Write about what's bothering you")
+                        Text("🧘  Listen to calming music or sounds")
                     
                 }
                 
@@ -106,6 +115,5 @@ struct SadPage: View {
     }
 }
 #Preview {
-    SadPage()
+    StressedPage()
 }
-
