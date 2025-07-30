@@ -81,7 +81,7 @@ struct Home: View {
                             
                         }
                         .navigationDestination(isPresented: $showHappyPage) {
-                                                Happy_Page()
+                                                HappyPage()
                                             }
                         Spacer()
                         
