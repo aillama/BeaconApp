@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SavedNotesView: View {
     @Binding var notes: [Note]
-
+   
     var body: some View {
         List {
             ForEach(notes) { note in
@@ -20,6 +20,7 @@ struct SavedNotesView: View {
                         .font(.subheadline)
                         .foregroundColor(.gray)
                         .lineLimit(2)
+                    
                 }
                 .padding(.vertical, 8)
             }
