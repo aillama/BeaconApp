@@ -35,9 +35,6 @@ struct Home: View {
                         .multilineTextAlignment(.leading)
                 }
                 .padding()
-
-            
-           
             
             
             //how to adjust space between buttons?
