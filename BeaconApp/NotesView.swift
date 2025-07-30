@@ -25,11 +25,11 @@ struct NotesView: View {
         NavigationView {
             ZStack {
                 RadialGradient(colors: [
-                    Color("lightpink"),
-                    Color("lightyellow"),
-                    Color("lightgreen"),
-                    Color("lightblue"),
-                    Color("lightpurple")
+                    Color("lightpink").opacity(9.9),
+                    Color("lightyellow").opacity(9.9),
+                    Color("lightgreen").opacity(8.9),
+                    Color("lightblue").opacity(8.9),
+                    Color("lightpurple").opacity(9.9),
                 ], center: .topLeading, startRadius: 845, endRadius: 111)
                 .ignoresSafeArea()
 
