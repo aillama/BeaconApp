@@ -16,6 +16,8 @@ struct SadPage: View {
     @State private var showQuote = false
     
     var body: some View {
+        
+        NavigationStack{
         ZStack {
             
             LinearGradient(
@@ -64,7 +66,7 @@ struct SadPage: View {
                         Text("5 Quick Tips:")
                             .font(.headline)
                             .frame(maxWidth: .infinity, alignment: .center)
-
+                        
                         
                         Text("🛌   Take some time for you to rest")
                         Text("📱   Call someone who will support you")
@@ -85,7 +87,7 @@ struct SadPage: View {
                             .font(.headline)
                             .fontWeight(.bold)
                             .foregroundColor(Color(red: 0.05, green: 0.07, blue: 0.1))
-
+                        
                         
                         Text(currentQuote)
                             .font(.body)
@@ -108,7 +110,7 @@ struct SadPage: View {
                                 .frame(maxWidth: .infinity)
                                 .background(Color.white.opacity(0.9))
                                 .foregroundColor(Color(red: 0.2, green: 0.35, blue: 0.6))
-
+                            
                                 .cornerRadius(15)
                                 .padding(.horizontal)
                                 .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
@@ -117,34 +119,39 @@ struct SadPage: View {
                         
                         
                         VStack(spacing: 15) {
-                            Text("Need to write something down?")
+                            
+                            NavigationLink (destination: NotesView()) {
+                                Text("Need to write something down?")
+                                    .font(.headline)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.white.opacity(0.9))
+                                    .foregroundColor(Color(red: 0.2, green: 0.35, blue: 0.6))
+                                
+                                    .cornerRadius(15)
+                                    .padding(.horizontal)
+                            }
+                            
+                            
+                            
+                            Text("Need more support?")
                                 .font(.headline)
                                 .padding()
                                 .frame(maxWidth: .infinity)
                                 .background(Color.white.opacity(0.9))
                                 .foregroundColor(Color(red: 0.2, green: 0.35, blue: 0.6))
-
+                            
                                 .cornerRadius(15)
                                 .padding(.horizontal)
+                                .multilineTextAlignment(.center)
                         }
-                        
-                        
-                        Text("Need more support?")
-                            .font(.headline)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.white.opacity(0.9))
-                            .foregroundColor(Color(red: 0.2, green: 0.35, blue: 0.6))
-
-                            .cornerRadius(15)
-                            .padding(.horizontal)
-                            .multilineTextAlignment(.center)
                     }
                     .padding()
                     .onAppear {
                         currentQuote = quotes.randomElement() ?? ""
                         showQuote = true
                     }
+                }
                 }
             }
         }

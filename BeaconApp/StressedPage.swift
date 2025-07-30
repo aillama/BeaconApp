@@ -115,19 +115,21 @@ struct StressedPage: View {
                                     .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
                             }
                             
-
+                            
+                            
+                            VStack {
                                 
                                 NavigationLink(destination: NotesView()) {
-                                        Text("Need to write something up?")
-                                            .font(.headline)
-                                            .padding()
-                                            .frame(maxWidth: .infinity)
-                                            .background(Color.white.opacity(0.9))
-                                            .foregroundColor(Color(red: 0.25, green: 0.45, blue: 0.3))
-                                            .cornerRadius(15)
-                                            .padding(.horizontal)
-                                            .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
-                                    }
+                                    Text("Need to write something down?")
+                                        .font(.headline)
+                                        .padding()
+                                        .frame(maxWidth: .infinity)
+                                        .background(Color.white.opacity(0.9))
+                                        .foregroundColor(Color(red: 0.25, green: 0.45, blue: 0.3))
+                                        .cornerRadius(15)
+                                        .padding(.horizontal)
+                                        .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
+                                }
                                 
                                 
                                 Text("Need more support?")
@@ -140,7 +142,8 @@ struct StressedPage: View {
                                     .cornerRadius(15)
                                     .padding(.horizontal)
                                     .multilineTextAlignment(.center)
-                            
+                                
+                            }
                         }
                         .padding()
                         .onAppear {
@@ -157,7 +160,7 @@ struct StressedPage: View {
 
 #Preview {
     NavigationStack{
-        SadPage()
+        StressedPage()
     }
 }
 
