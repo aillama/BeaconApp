@@ -80,13 +80,13 @@ struct NotesView: View {
                                     .foregroundColor(.white)
                                     .padding()
                                     .frame(maxWidth: .infinity)
-                                    .background(Color.blue.opacity(0.8))
+                                    .background(Color.green.opacity(0.8))
                                     .cornerRadius(12)
                             }
                             .padding(.horizontal)
 
-                            // Navigation to saved notes list
-                            NavigationLink(destination: SavedNotesView(notes: savedNotes), isActive: $navigateToSaved) {
+                            // ✅ Pass binding to SavedNotesView
+                            NavigationLink(destination: SavedNotesView(notes: $savedNotes), isActive: $navigateToSaved) {
                                 EmptyView()
                             }
 
@@ -99,7 +99,7 @@ struct NotesView: View {
                                     .foregroundColor(.white)
                                     .padding()
                                     .frame(maxWidth: .infinity)
-                                    .background(Color.green.opacity(0.8))
+                                    .background(Color.purple.opacity(0.8))
                                     .cornerRadius(12)
                             }
                             .padding(.horizontal)
@@ -114,7 +114,7 @@ struct NotesView: View {
         }
     }
 
-    // MARK: - Save Note
+    
     func saveNote() {
         let newNote = Note(id: UUID(), title: noteTitle, text: notesText)
         savedNotes.append(newNote)
@@ -125,7 +125,7 @@ struct NotesView: View {
         notesText = ""
     }
 
-    // MARK: - Load Notes
+    
     func loadNotes() {
         if let data = UserDefaults.standard.data(forKey: "savedNotes"),
            let decoded = try? JSONDecoder().decode([Note].self, from: data) {
@@ -134,9 +134,10 @@ struct NotesView: View {
     }
 }
 
-// ✅ Preview (optional for testing)
+
 #Preview {
     NotesView()
 }
+
 
 
