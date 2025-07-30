@@ -82,7 +82,7 @@ struct immediateHelpPage: View {
                 
             }
             
-            RadialGradient(colors: [Color("lightpink"), Color("lightyellow"),Color("lightgreen"), Color("lightblue"), Color("lightpurple")], center: .topLeading, startRadius: 845, endRadius: 111)
+            .background(RadialGradient(colors: [Color("lightpink"), Color("lightyellow"),Color("lightgreen"), Color("lightblue"), Color("lightpurple")], center: .topLeading, startRadius: 770, endRadius: 150))
                 .ignoresSafeArea()
             
             
