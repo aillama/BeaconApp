@@ -50,7 +50,7 @@ struct AngryPage: View {
 
                     
                     
-                    Text("It's okay to feel down sometimes. Take things at your own pace.")
+                    Text("Let's cool down together!")
                         .font(.system(.body, design: .rounded))
                         .fontWeight(.bold)
                         .foregroundColor(Color(red: 0.18, green: 0.10, blue: 0.12))
@@ -59,7 +59,7 @@ struct AngryPage: View {
                     
                     
                     VStack(alignment: .center, spacing: 15) {
-                        Text("**You matter.** This feeling won't last forever.")
+                        Text("**Your feelings are valid.** Let's handle them safely!.")
                             .font(.body)
                             .multilineTextAlignment(.center)
                         
@@ -69,11 +69,17 @@ struct AngryPage: View {
                             .frame(maxWidth: .infinity, alignment: .center)
 
                         
-                        Text("🛌   Take some time for you to rest")
-                        Text("📱   Call someone who will support you")
-                        Text("🚶‍♀️   Go on a walk outside")
-                        Text("🎨   Spend time on an activity you enjoy")
-                        Text("✍️   Write about what's bothering you")
+                        Text("🚪   Remove yourself from the situation")
+                        VStack(alignment: .leading, spacing: 0) {
+                            Text("📱   Write an unsent letter to what's ")
+                            Text("         bothering you")
+                                
+                        }
+
+                        Text("🗣️   Say and describe what you're feeling")
+                        Text("🧊   Cool down and sip water slowly")
+                        
+                        Text("🎯   Do something that requires focus")
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
