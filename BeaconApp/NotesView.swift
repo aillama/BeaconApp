@@ -7,59 +7,136 @@
 
 import SwiftUI
 
+
+struct Note: Identifiable, Codable {
+    let id: UUID
+    var title: String
+    var text: String
+}
+
+
 struct NotesView: View {
+    @State private var noteTitle = ""
     @State private var notesText = ""
-    
+    @State private var savedNotes: [Note] = []
+    @State private var navigateToSaved = false
+
     var body: some View {
-        ZStack {
-            RadialGradient(colors: [Color("lightpink"), Color("lightyellow"),Color("lightgreen"), Color("lightblue"), Color("lightpurple")], center: .topLeading, startRadius: 845, endRadius: 111)
+        NavigationView {
+            ZStack {
+                RadialGradient(colors: [
+                    Color("lightpink"),
+                    Color("lightyellow"),
+                    Color("lightgreen"),
+                    Color("lightblue"),
+                    Color("lightpurple")
+                ], center: .topLeading, startRadius: 845, endRadius: 111)
                 .ignoresSafeArea()
-            
-            .ignoresSafeArea()
-            
-            VStack(alignment: .leading) {
-                Text("Journal 🌟")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(Color.white)
-                    .padding(.top)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .offset(x: 5, y: 70)
-                
-                Text("beacon")
-                    .font(.system(size: 34, weight: .heavy, design: .rounded))
-                    .foregroundColor(Color("lightpurple"))
-                    .offset(x: 87 , y: -48)
-                    .padding(.vertical, 1)
-                    .padding(.horizontal, 50)
-                    .background(
-                        Color.white.opacity(0.5)
-                            .cornerRadius(25)
-                            .shadow(color: Color.white, radius: 10, x: 0, y: 5)
-                            .opacity(1.5)
-                            .offset(x:87 , y: -47)
 
-                    )
-                                 
-                                 Spacer()
-                                 
-                                 TextEditor(text: $notesText)
-                                     .padding()
-                                     .frame(height: 670)
-                                     .background(Color.white.opacity(0.1))
-                                     .cornerRadius(10)
-                                     .overlay(
-                                         RoundedRectangle(cornerRadius: 5)
-                                            .stroke(Color.white.opacity(0.5), lineWidth:1.5)
-                                     )
-                                     .foregroundColor(.black)
-                                     .padding()
-                             }
-                         }
-                     }
-                 }
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("Journal 🌟")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(.top, 60)
+                        .frame(maxWidth: .infinity, alignment: .center)
 
-                 
-                 #Preview {
-                     NotesView()
-                 }
+                    Text("beacon")
+                        .font(.system(size: 34, weight: .heavy, design: .rounded))
+                        .foregroundColor(Color("lightpurple"))
+                        .padding(.vertical, 8)
+                        .padding(.horizontal, 40)
+                        .background(
+                            Color.white.opacity(0.5)
+                                .cornerRadius(25)
+                                .shadow(color: Color.white.opacity(0.5), radius: 10, x: 0, y: 5)
+                        )
+                        .frame(maxWidth: .infinity, alignment: .center)
+
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 16) {
+                            TextField("Type title here...", text: $noteTitle)
+                                .font(.system(size: 24, weight: .bold, design: .rounded))
+                                .padding()
+                                .background(Color.white.opacity(0.2))
+                                .cornerRadius(10)
+                                .padding(.horizontal)
+
+                            TextEditor(text: $notesText)
+                                .padding()
+                                .frame(minHeight: 300)
+                                .background(Color.white.opacity(0.1))
+                                .cornerRadius(10)
+                                .overlay(
+                                    RoundedRectangle(cornerRadius: 5)
+                                        .stroke(Color.white.opacity(0.5), lineWidth: 1.5)
+                                )
+                                .foregroundColor(.black)
+                                .padding(.horizontal)
+
+                            Button(action: saveNote) {
+                                Text("Save Note")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.blue.opacity(0.8))
+                                    .cornerRadius(12)
+                            }
+                            .padding(.horizontal)
+
+                            // Navigation to saved notes list
+                            NavigationLink(destination: SavedNotesView(notes: savedNotes), isActive: $navigateToSaved) {
+                                EmptyView()
+                            }
+
+                            Button(action: {
+                                loadNotes()
+                                navigateToSaved = true
+                            }) {
+                                Text("View All Notes")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.green.opacity(0.8))
+                                    .cornerRadius(12)
+                            }
+                            .padding(.horizontal)
+                            .padding(.bottom, 40)
+                        }
+                    }
+                }
+                .padding(.top, 10)
+            }
+            .navigationBarHidden(true)
+            .onAppear(perform: loadNotes)
+        }
+    }
+
+    // MARK: - Save Note
+    func saveNote() {
+        let newNote = Note(id: UUID(), title: noteTitle, text: notesText)
+        savedNotes.append(newNote)
+        if let encoded = try? JSONEncoder().encode(savedNotes) {
+            UserDefaults.standard.set(encoded, forKey: "savedNotes")
+        }
+        noteTitle = ""
+        notesText = ""
+    }
+
+    // MARK: - Load Notes
+    func loadNotes() {
+        if let data = UserDefaults.standard.data(forKey: "savedNotes"),
+           let decoded = try? JSONDecoder().decode([Note].self, from: data) {
+            savedNotes = decoded
+        }
+    }
+}
+
+// ✅ Preview (optional for testing)
+#Preview {
+    NotesView()
+}
+
+
