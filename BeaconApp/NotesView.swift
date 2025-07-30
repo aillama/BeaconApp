@@ -25,11 +25,11 @@ struct NotesView: View {
         NavigationView {
             ZStack {
                 RadialGradient(colors: [
-                    Color("lightpink").opacity(9.9),
-                    Color("lightyellow").opacity(9.9),
-                    Color("lightgreen").opacity(8.9),
-                    Color("lightblue").opacity(8.9),
-                    Color("lightpurple").opacity(9.9),
+                    Color("lightpink").opacity(0.9),
+                    Color("lightyellow").opacity(0.9),
+                    Color("lightgreen").opacity(0.9),
+                    Color("lightblue").opacity(0.9),
+                    Color("lightpurple").opacity(0.9),
                 ], center: .topLeading, startRadius: 845, endRadius: 111)
                 .ignoresSafeArea()
 
@@ -43,13 +43,13 @@ struct NotesView: View {
 
                     Text("beacon")
                         .font(.system(size: 34, weight: .heavy, design: .rounded))
-                        .foregroundColor(Color("lightpurple"))
+                        .foregroundColor(Color.lightpurple)
                         .padding(.vertical, 8)
                         .padding(.horizontal, 40)
                         .background(
                             Color.white.opacity(0.5)
                                 .cornerRadius(25)
-                                .shadow(color: Color.white.opacity(0.5), radius: 10, x: 0, y: 5)
+                                .shadow(color: Color.white.opacity(0.9), radius: 10, x: 0, y: 5)
                         )
                         .frame(maxWidth: .infinity, alignment: .center)
 
