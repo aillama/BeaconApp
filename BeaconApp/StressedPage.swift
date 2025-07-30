@@ -67,10 +67,10 @@ struct StressedPage: View {
                                 Text("       minutes")
                             }
                             
-                            Text("🏃‍♀️  Do some light exercise")
-                            Text("🌟  Write a list of positive affirmations")
-                            Text("🧘  Listen to calming music or sounds")
-                            Text("🕯️  Try a mindfulness exercise")
+                            Text("🏃‍♀️   Do some light exercise")
+                            Text("🌟   Write a list of positive affirmations")
+                            Text("🧘   Listen to calming music or sounds")
+                            Text("🕯️   Try a mindfulness exercise")
                         }
                         .padding()
                         .frame(maxWidth: .infinity)
@@ -129,7 +129,7 @@ struct StressedPage: View {
                                 .padding()
                                 .frame(maxWidth: .infinity)
                                 .background(Color.white.opacity(0.9))
-                                .foregroundColor(Color(red: 0.25, green: 0.45, blue: 0.3)) // a calming leafy green
+                                .foregroundColor(Color(red: 0.25, green: 0.45, blue: 0.3))
 
                                 .cornerRadius(15)
                                 .padding(.horizontal)

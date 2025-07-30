@@ -1,15 +1,15 @@
 import SwiftUI
 
-struct SadPage: View {
+struct AngryPage: View {
     
     let quotes = [
-        "Sadness flies away on the wings of time.",
-        "Don't grieve. Anything you lose comes round in another form.",
-        "The word happy would lose its meaning if it were not balanced with sadness.",
-        "To be wronged is nothing unless you continue to remember it.",
-        "Every person has their secret sorrows which the world knows not.",
-        "Every situation in life is temporary.",
-        "The hard days make you stronger and the bad days help you realize what a good day is."
+        "Anger is like flowing water; there’s nothing wrong with it as long as you let it flow.",
+        "You are not your anger. You are the one noticing it, feeling it, and learning from it.",
+        "Feeling angry doesn’t make you a bad person. It means you’re human.",
+        "Anger is a signal, not a solution.",
+        "You’re allowed to pause and take space when things feel too big.",
+        "Feelings are just visitors. Let them come and leave.",
+        "Anger is not the enemy. It is a compass."
     ]
     
     @State private var currentQuote = ""
@@ -20,13 +20,14 @@ struct SadPage: View {
             
             LinearGradient(
                 gradient: Gradient(colors: [
-                    Color(red: 0.60, green: 0.77, blue: 0.94),
-                    Color(red: 0.45, green: 0.63, blue: 0.82),
-                    Color(red: 0.30, green: 0.48, blue: 0.69)
+                    Color(red: 0.98, green: 0.87, blue: 0.90),
+                    Color(red: 0.91, green: 0.70, blue: 0.75),
+                    Color(red: 0.74, green: 0.48, blue: 0.53)
                 ]),
                 startPoint: .top,
                 endPoint: .bottom
             )
+
             .ignoresSafeArea()
             
             ScrollView {
@@ -39,18 +40,20 @@ struct SadPage: View {
                         .padding(.vertical, 15)
                         .padding(.horizontal, 60)
                         .background(
-                            Color.black.opacity(0.6)
+                            Color(red: 0.40, green: 0.18, blue: 0.22).opacity(0.9)
                                 .cornerRadius(25)
-                                .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+                                .shadow(color: Color(red: 0.40, green: 0.18, blue: 0.22).opacity(0.5), radius: 10, x: 0, y: 5)
                         )
                         .padding(.top, 30)
                         .frame(maxWidth: .infinity)
+
+
                     
                     
                     Text("It's okay to feel down sometimes. Take things at your own pace.")
                         .font(.system(.body, design: .rounded))
                         .fontWeight(.bold)
-                        .foregroundColor(Color(red: 0.05, green: 0.07, blue: 0.1))
+                        .foregroundColor(Color(red: 0.18, green: 0.10, blue: 0.12))
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, 30)
                     
@@ -74,7 +77,7 @@ struct SadPage: View {
                     }
                     .padding()
                     .frame(maxWidth: .infinity)
-                    .background(Color(red: 0.85, green: 0.90, blue: 0.95))
+                    .background(Color(red: 0.97, green: 0.91, blue: 0.93))
                     .cornerRadius(20)
                     .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
                     .padding(.horizontal)
@@ -84,7 +87,7 @@ struct SadPage: View {
                         Text("Quote of the Moment")
                             .font(.headline)
                             .fontWeight(.bold)
-                            .foregroundColor(Color(red: 0.05, green: 0.07, blue: 0.1))
+                            .foregroundColor(Color(red: 0.15, green: 0.07, blue: 0.08))
 
                         
                         Text(currentQuote)
@@ -107,7 +110,8 @@ struct SadPage: View {
                                 .padding()
                                 .frame(maxWidth: .infinity)
                                 .background(Color.white.opacity(0.9))
-                                .foregroundColor(Color(red: 0.2, green: 0.35, blue: 0.6))
+                                .foregroundColor(Color(red: 0.55, green: 0.25, blue: 0.35))
+
 
                                 .cornerRadius(15)
                                 .padding(.horizontal)
@@ -122,7 +126,8 @@ struct SadPage: View {
                                 .padding()
                                 .frame(maxWidth: .infinity)
                                 .background(Color.white.opacity(0.9))
-                                .foregroundColor(Color(red: 0.2, green: 0.35, blue: 0.6))
+                                .foregroundColor(Color(red: 0.55, green: 0.25, blue: 0.35))
+
 
                                 .cornerRadius(15)
                                 .padding(.horizontal)
@@ -134,7 +139,8 @@ struct SadPage: View {
                             .padding()
                             .frame(maxWidth: .infinity)
                             .background(Color.white.opacity(0.9))
-                            .foregroundColor(Color(red: 0.2, green: 0.35, blue: 0.6))
+                            .foregroundColor(Color(red: 0.55, green: 0.25, blue: 0.35))
+
 
                             .cornerRadius(15)
                             .padding(.horizontal)
@@ -151,5 +157,6 @@ struct SadPage: View {
     }
 }
 #Preview {
-    SadPage()
+    AngryPage()
 }
+
