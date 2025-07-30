@@ -12,11 +12,9 @@ struct NotesView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(
-                gradient: Gradient(colors: [.pink, .yellow, .blue]),
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+            RadialGradient(colors: [Color("lightpink"), Color("lightyellow"),Color("lightgreen"), Color("lightblue"), Color("lightpurple")], center: .topLeading, startRadius: 845, endRadius: 111)
+                .ignoresSafeArea()
+            
             .ignoresSafeArea()
             
             VStack(alignment: .leading) {
@@ -30,14 +28,15 @@ struct NotesView: View {
                 
                 Text("beacon")
                     .font(.system(size: 34, weight: .heavy, design: .rounded))
-                    .foregroundColor(Color(red: 0.985, green: 0.601, blue: 0.194))
+                    .foregroundColor(Color("lightpurple"))
                     .offset(x: 87 , y: -48)
                     .padding(.vertical, 1)
                     .padding(.horizontal, 50)
                     .background(
-                        Color.white.opacity(1.0)
+                        Color.white.opacity(0.5)
                             .cornerRadius(25)
-                            .shadow(color: Color.yellow, radius: 10, x: 0, y: 5)
+                            .shadow(color: Color.white, radius: 10, x: 0, y: 5)
+                            .opacity(1.5)
                             .offset(x:87 , y: -47)
 
                     )
