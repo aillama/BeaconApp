@@ -16,6 +16,8 @@ struct AngryPage: View {
     @State private var showQuote = false
     
     var body: some View {
+        
+        NavigationStack {
         ZStack {
             
             LinearGradient(
@@ -46,8 +48,8 @@ struct AngryPage: View {
                         )
                         .padding(.top, 30)
                         .frame(maxWidth: .infinity)
-
-
+                    
+                    
                     
                     
                     Text("Let's cool down together!")
@@ -67,15 +69,15 @@ struct AngryPage: View {
                         Text("5 Quick Tips:")
                             .font(.headline)
                             .frame(maxWidth: .infinity, alignment: .center)
-
+                        
                         
                         Text("🚪   Remove yourself from the situation")
                         VStack(alignment: .leading, spacing: 0) {
                             Text("📱   Write an unsent letter to what's ")
                             Text("         bothering you")
-                                
+                            
                         }
-
+                        
                         Text("🗣️   Say and describe what you're feeling")
                         Text("🧊   Cool down and sip water slowly")
                         
@@ -94,7 +96,7 @@ struct AngryPage: View {
                             .font(.headline)
                             .fontWeight(.bold)
                             .foregroundColor(Color(red: 0.15, green: 0.07, blue: 0.08))
-
+                        
                         
                         Text(currentQuote)
                             .font(.body)
@@ -117,8 +119,8 @@ struct AngryPage: View {
                                 .frame(maxWidth: .infinity)
                                 .background(Color.white.opacity(0.9))
                                 .foregroundColor(Color(red: 0.55, green: 0.25, blue: 0.35))
-
-
+                            
+                            
                                 .cornerRadius(15)
                                 .padding(.horizontal)
                                 .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
@@ -127,36 +129,40 @@ struct AngryPage: View {
                         
                         
                         VStack(spacing: 15) {
-                            Text("Need to write something down?")
+                            
+                            NavigationLink (destination: NotesView()) {
+                                Text("Need to write something down?")
+                                    .font(.headline)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.white.opacity(0.9))
+                                    .foregroundColor(Color(red: 0.55, green: 0.25, blue: 0.35))
+                                
+                                
+                                    .cornerRadius(15)
+                                    .padding(.horizontal)
+                            }
+                            
+                            
+                            Text("Need more support?")
                                 .font(.headline)
                                 .padding()
                                 .frame(maxWidth: .infinity)
                                 .background(Color.white.opacity(0.9))
                                 .foregroundColor(Color(red: 0.55, green: 0.25, blue: 0.35))
-
-
+                            
+                            
                                 .cornerRadius(15)
                                 .padding(.horizontal)
+                                .multilineTextAlignment(.center)
                         }
-                        
-                        
-                        Text("Need more support?")
-                            .font(.headline)
-                            .padding()
-                            .frame(maxWidth: .infinity)
-                            .background(Color.white.opacity(0.9))
-                            .foregroundColor(Color(red: 0.55, green: 0.25, blue: 0.35))
-
-
-                            .cornerRadius(15)
-                            .padding(.horizontal)
-                            .multilineTextAlignment(.center)
                     }
                     .padding()
                     .onAppear {
                         currentQuote = quotes.randomElement() ?? ""
                         showQuote = true
                     }
+                }
                 }
             }
         }
