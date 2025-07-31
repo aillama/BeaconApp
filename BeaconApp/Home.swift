@@ -39,15 +39,16 @@ struct Home: View {
                         .padding(.vertical, 15)
                         .padding(.horizontal, 60)
                         .background(
-                            Color(red: 0.12, green: 0.06, blue: 0.18)
+                            Color(red: 0.18, green: 0.12, blue: 0.28)
                                 .opacity(0.85)
+
                                 .cornerRadius(25)
                                 .shadow(color: Color(red: 0.25, green: 0.15, blue: 0.1).opacity(0.5), radius: 10, x: 0, y: 5)
 
 
                         
                         )
-                        .padding(.top, 3)
+                        .padding(.top, 45)
                         .frame(maxWidth: .infinity)
                     
                     HStack {
@@ -57,6 +58,7 @@ struct Home: View {
                         
                     }
                     .padding()
+                    
 
                     
                     
