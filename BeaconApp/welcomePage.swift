@@ -83,7 +83,7 @@ struct welcomePage: View {
                     }
                     .padding()
                     .background(
-                        Color(red: 0.00, green: 0.00, blue: 0.00))
+                        Color(red: 0.32, green: 0.20, blue: 0.28))
 
                     .foregroundStyle(.white)
                     .cornerRadius(15)
