@@ -58,6 +58,8 @@ struct Home: View {
                             .font(.system(size: 24, weight: .semibold, design: .rounded))
                             .foregroundColor(Color(red: 0.10, green: 0.18, blue: 0.12))
                             .multilineTextAlignment(.center)
+                            .padding(.top, 30)
+    
                         
                     }
                     
