@@ -50,11 +50,45 @@ struct immediateHelpPage: View {
           .cornerRadius(15)
           Spacer()
         } //large v stack end
-        NavigationLink(destination: ContentView()){
-          Text("Click me")
-            .padding([.top], 100)
-            .foregroundStyle(Color(.black))
-        }
+          
+          
+          VStack(spacing:20) {
+              NavigationLink(destination: NotesView()){
+                  Text("Need to write something down?")
+                      .font(.headline)
+                      .padding()
+                      .background(Color.white.opacity(0.9))
+                      .foregroundColor(Color(red: 0.55, green: 0.25, blue: 0.35))
+                      .cornerRadius(15)
+                      .padding(.horizontal)
+                      .padding(.top, 300)
+              }
+              
+              NavigationLink(destination: Home()){
+                  Text("Get Inspired")
+                      .font(.headline)
+                      .padding()
+                      .background(Color.white.opacity(0.9))
+                      .foregroundColor(Color(red: 0.55, green: 0.25, blue: 0.35))
+                      .cornerRadius(15)
+                      .padding(.horizontal)
+                  
+              }
+              
+              NavigationLink(destination:welcomePage()) {
+                  Text("Do something here")
+                      .font(.headline)
+                      .padding()
+                      .background(Color.white.opacity(0.9))
+                      .foregroundColor(Color(red: 0.55, green: 0.25, blue: 0.35))
+                      .cornerRadius(15)
+                      .padding(.horizontal)
+              }
+              
+              
+          } // end of v stack with the nav links
+          
+          
       }//large zstack end
     }//nav stack end
     .background(RadialGradient(colors: [Color("lightpink"), Color("lightyellow"),Color("lightgreen"), Color("lightblue"), Color("lightpurple")], center: .topLeading, startRadius: 770, endRadius: 150))
