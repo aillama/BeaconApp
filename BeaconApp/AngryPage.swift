@@ -144,18 +144,19 @@ struct AngryPage: View {
                                     .padding(.horizontal)
                             }
                             
-                            
-                            Text("Need more support?")
-                                .font(.headline)
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color.white.opacity(0.9))
-                                .foregroundColor(Color(red: 0.55, green: 0.25, blue: 0.35))
-                            
-                            
-                                .cornerRadius(15)
-                                .padding(.horizontal)
-                                .multilineTextAlignment(.center)
+                            NavigationLink (destination: immediateHelpPage()) {
+                                Text("Need more support?")
+                                    .font(.headline)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.white.opacity(0.9))
+                                    .foregroundColor(Color(red: 0.55, green: 0.25, blue: 0.35))
+                                
+                                
+                                    .cornerRadius(15)
+                                    .padding(.horizontal)
+                                    .multilineTextAlignment(.center)
+                            }
                         }
                     }
                     .padding()

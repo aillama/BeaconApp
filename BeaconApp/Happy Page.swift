@@ -150,19 +150,20 @@ struct HappyPage: View {
                                 }
                                 
                                 
-                                
-                                Text("Need more support?")
-                                    .font(.headline)
-                                    .padding()
-                                    .frame(maxWidth: .infinity)
-                                    .background(Color.white.opacity(0.9))
-                                    .foregroundColor(Color(red: 0.48, green: 0.39, blue: 0.13))
-                                
-                                
-                                
-                                    .cornerRadius(15)
-                                    .padding(.horizontal)
-                                    .multilineTextAlignment(.center)
+                                NavigationLink(destination: immediateHelpPage()) {
+                                    Text("Need more support?")
+                                        .font(.headline)
+                                        .padding()
+                                        .frame(maxWidth: .infinity)
+                                        .background(Color.white.opacity(0.9))
+                                        .foregroundColor(Color(red: 0.48, green: 0.39, blue: 0.13))
+                                    
+                                    
+                                    
+                                        .cornerRadius(15)
+                                        .padding(.horizontal)
+                                        .multilineTextAlignment(.center)
+                                }
                             }
                             .padding()
                             .onAppear {
@@ -180,6 +181,7 @@ struct HappyPage: View {
 }
 #Preview {
     HappyPage()
+        .environmentObject(sharedData())
 }
 
 

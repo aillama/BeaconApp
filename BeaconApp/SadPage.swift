@@ -134,17 +134,18 @@ struct SadPage: View {
                             }
                             
                             
-                            
-                            Text("Need more support?")
-                                .font(.headline)
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color.white.opacity(0.9))
-                                .foregroundColor(Color(red: 0.2, green: 0.35, blue: 0.6))
-                            
-                                .cornerRadius(15)
-                                .padding(.horizontal)
-                                .multilineTextAlignment(.center)
+                            NavigationLink (destination: immediateHelpPage()) {
+                                Text("Need more support?")
+                                    .font(.headline)
+                                    .padding()
+                                    .frame(maxWidth: .infinity)
+                                    .background(Color.white.opacity(0.9))
+                                    .foregroundColor(Color(red: 0.2, green: 0.35, blue: 0.6))
+                                
+                                    .cornerRadius(15)
+                                    .padding(.horizontal)
+                                    .multilineTextAlignment(.center)
+                            }
                         }
                     }
                     .padding()
@@ -163,4 +164,5 @@ struct SadPage: View {
 }
 #Preview {
     SadPage()
+        .environmentObject(sharedData())
 }
