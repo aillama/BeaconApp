@@ -16,13 +16,13 @@ struct SavedNotesView: View {
 
             if notes.isEmpty {
                 Text("No saved notes yet.")
-                    .foregroundColor(Color(.black))
+                    .foregroundColor(.black)
                     .font(.title3)
                     .italic()
                     .padding()
             } else {
                 List {
-                    ForEach(Array(notes.enumerated()), id: \.element.id) { index, note in
+                    ForEach(sortedNotes, id: \.id) { note in
                         HStack(alignment: .top) {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text(note.title)
@@ -35,13 +35,16 @@ struct SavedNotesView: View {
                                     .lineLimit(3)
                             }
                             Spacer()
+
                             Button(action: {
-                                toggleFavorite(at: index)
+                                toggleFavorite(note)
                             }) {
                                 Image(systemName: note.isFavorite ? "star.fill" : "star")
+                                    .resizable()
                                     .foregroundColor(note.isFavorite ? .yellow : .gray)
-                                    .imageScale(.large)
+                                    .frame(width: 24, height: 24)
                             }
+                            .buttonStyle(PlainButtonStyle())
                         }
                         .padding()
                         .background(Color.white.opacity(0.85))
@@ -62,22 +65,34 @@ struct SavedNotesView: View {
         }
     }
 
+    /// Sorts favorites to the top
+    var sortedNotes: [Note] {
+        notes.sorted { $0.isFavorite && !$1.isFavorite }
+    }
+
+    /// Toggle favorite status for a given note
+    func toggleFavorite(_ note: Note) {
+        if let index = notes.firstIndex(where: { $0.id == note.id }) {
+            notes[index].isFavorite.toggle()
+            saveNotes()
+        }
+    }
+
+    /// Delete selected notes
     func deleteNote(at offsets: IndexSet) {
         notes.remove(atOffsets: offsets)
         saveNotes()
     }
 
-    func toggleFavorite(at index: Int) {
-        notes[index].isFavorite.toggle()
-        saveNotes()
-    }
-
+    /// Save notes to UserDefaults
     private func saveNotes() {
         if let encoded = try? JSONEncoder().encode(notes) {
             UserDefaults.standard.set(encoded, forKey: "savedNotes")
         }
     }
 }
+
+
 
 
 
