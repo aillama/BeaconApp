@@ -190,7 +190,23 @@ struct Home: View {
                 }
                 .padding()
             }
+            //dated way of doing it
+//            .navigationBarItems(
+//                leading: Image("phone-call")
+//                    .resizable()
+//                    .aspectRatio(contentMode: .fit)
+//                    .padding(4.0)
+//            )
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Image("phone-call")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding(4.0)
+                }
+            }
         }
+        
         
     }
 }
