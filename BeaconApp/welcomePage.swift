@@ -43,7 +43,7 @@ struct welcomePage: View {
                         .padding(.vertical, 15)
                         .padding(.horizontal, 60)
                         .background(
-                            Color.black.opacity(0.8)
+                            Color(red: 0.42, green: 0.25, blue: 0.34)
                                 .cornerRadius(25)
                                 .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
                         )
@@ -54,6 +54,12 @@ struct welcomePage: View {
                     
                     Text("Hello! What is your name?")
                         .font(.title)
+                        .foregroundColor(Color(red: 0.12, green: 0.07, blue: 0.09))
+                        .padding()
+
+                       
+
+                    
                         //.background(Color(.white))
                         //.cornerRadius(15)
                     
@@ -76,7 +82,10 @@ struct welcomePage: View {
                         Text("Submit")
                     }
                     .padding()
-                    .background(.black)
+                    .background(
+                        Color(red: 0.42, green: 0.25, blue: 0.34)
+                            .cornerRadius(25))
+
                     .foregroundStyle(.white)
                     .cornerRadius(15)
                     //these two aren't working for some reason - figure it out!
