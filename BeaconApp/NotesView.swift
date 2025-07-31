@@ -7,13 +7,12 @@
 
 import SwiftUI
 
-
 struct Note: Identifiable, Codable {
     let id: UUID
     var title: String
     var text: String
+    var isFavorite: Bool = false // Added for favorite toggle
 }
-
 
 struct NotesView: View {
     @State private var noteTitle = ""
@@ -24,7 +23,6 @@ struct NotesView: View {
     var body: some View {
         NavigationView {
             ZStack {
-            
                 RadialGradient(colors: [
                     Color("lightpink").opacity(0.9),
                     Color("lightyellow").opacity(0.9),
@@ -35,7 +33,6 @@ struct NotesView: View {
                 .ignoresSafeArea()
 
                 VStack(alignment: .leading, spacing: 16) {
-
                     Text("beacon")
                         .font(.system(size: 44, weight: .heavy, design: .rounded))
                         .foregroundColor(.white)
@@ -43,7 +40,6 @@ struct NotesView: View {
                         .padding(.horizontal, 60)
                         .background(
                             Color(red: 0.30, green: 0.60, blue: 0.62)
-
                                 .cornerRadius(25)
                                 .shadow(color: Color(red: 0.55, green: 0.45, blue: 0.15).opacity(0.5), radius: 10, x: 0, y: 5)
                         )
@@ -65,7 +61,6 @@ struct NotesView: View {
                                 .background(Color.white)
                                 .cornerRadius(10)
                                 .padding(.horizontal)
-                            
 
                             TextEditor(text: $notesText)
                                 .padding()
@@ -113,13 +108,11 @@ struct NotesView: View {
                 }
                 .padding(.top, 10)
             }
-
             .navigationBarHidden(true)
             .onAppear(perform: loadNotes)
         }
     }
 
-    
     func saveNote() {
         let newNote = Note(id: UUID(), title: noteTitle, text: notesText)
         savedNotes.append(newNote)
@@ -130,7 +123,6 @@ struct NotesView: View {
         notesText = ""
     }
 
-    
     func loadNotes() {
         if let data = UserDefaults.standard.data(forKey: "savedNotes"),
            let decoded = try? JSONDecoder().decode([Note].self, from: data) {
@@ -139,10 +131,10 @@ struct NotesView: View {
     }
 }
 
-
 #Preview {
     NotesView()
 }
+
 
 
 
