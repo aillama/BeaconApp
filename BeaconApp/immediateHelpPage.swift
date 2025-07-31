@@ -64,16 +64,7 @@ struct immediateHelpPage: View {
                     // Navigation Buttons
                     
 
-                        NavigationLink(destination: welcomePage()) {
-                            Text("Go to home")
-                                .font(.headline)
-                                .padding()
-                                .background(Color.white.opacity(0.9))
-                                .foregroundColor(Color(red: 0.45, green: 0.25, blue: 0.55)
-)
-                                .cornerRadius(15)
-                                .padding(.horizontal)
-                        }
+                        
                     }
                     .padding(.bottom, 40)
                 } // VStack end
