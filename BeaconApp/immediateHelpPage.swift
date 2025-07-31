@@ -20,17 +20,19 @@ struct immediateHelpPage: View {
 
                 VStack(spacing: 30) {
                     // Beacon Header
-                    Text("beacon")
-                        .font(.system(size: 44, weight: .heavy, design: .rounded))
-                        .foregroundColor(.white)
-                        .padding(.vertical, 15)
-                        .padding(.horizontal, 60)
-                        .background(
-                            Color(red: 0.45, green: 0.25, blue: 0.55)
-                                .cornerRadius(25)
-                                .shadow(color: Color(red: 0.55, green: 0.45, blue: 0.15).opacity(0.5), radius: 10, x: 0, y: 5)
-                        )
-                        .padding(.top, 30)
+                    NavigationLink (destination: Home()) {
+                        Text("beacon")
+                            .font(.system(size: 44, weight: .heavy, design: .rounded))
+                            .foregroundColor(.white)
+                            .padding(.vertical, 15)
+                            .padding(.horizontal, 60)
+                            .background(
+                                Color(red: 0.45, green: 0.25, blue: 0.55)
+                                    .cornerRadius(25)
+                                    .shadow(color: Color(red: 0.55, green: 0.45, blue: 0.15).opacity(0.5), radius: 10, x: 0, y: 5)
+                            )
+                            .padding(.top, 30)
+                    }
 
                     // Main Message
                     Text("Need immediate help? You are not alone. We are here for you.")
