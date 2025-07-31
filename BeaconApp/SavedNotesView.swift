@@ -2,7 +2,7 @@ import SwiftUI
 
 struct SavedNotesView: View {
     @Binding var notes: [Note]
-   
+
     var body: some View {
         ZStack {
             RadialGradient(colors: [
@@ -22,16 +22,26 @@ struct SavedNotesView: View {
                     .padding()
             } else {
                 List {
-                    ForEach(notes) { note in
-                        VStack(alignment: .leading, spacing: 8) {
-                            Text(note.title)
-                                .font(.headline)
-                                .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.48))
-                            
-                            Text(note.text)
-                                .font(.subheadline)
-                                .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.50))
-                                .lineLimit(3)
+                    ForEach(Array(notes.enumerated()), id: \.element.id) { index, note in
+                        HStack(alignment: .top) {
+                            VStack(alignment: .leading, spacing: 8) {
+                                Text(note.title)
+                                    .font(.headline)
+                                    .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.48))
+
+                                Text(note.text)
+                                    .font(.subheadline)
+                                    .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.50))
+                                    .lineLimit(3)
+                            }
+                            Spacer()
+                            Button(action: {
+                                toggleFavorite(at: index)
+                            }) {
+                                Image(systemName: note.isFavorite ? "star.fill" : "star")
+                                    .foregroundColor(note.isFavorite ? .yellow : .gray)
+                                    .imageScale(.large)
+                            }
                         }
                         .padding()
                         .background(Color.white.opacity(0.85))
@@ -48,14 +58,24 @@ struct SavedNotesView: View {
         }
         .navigationTitle("Saved Notes")
         .toolbar {
-            EditButton() 
+            EditButton()
         }
     }
 
     func deleteNote(at offsets: IndexSet) {
         notes.remove(atOffsets: offsets)
+        saveNotes()
+    }
+
+    func toggleFavorite(at index: Int) {
+        notes[index].isFavorite.toggle()
+        saveNotes()
+    }
+
+    private func saveNotes() {
         if let encoded = try? JSONEncoder().encode(notes) {
             UserDefaults.standard.set(encoded, forKey: "savedNotes")
         }
     }
 }
+
