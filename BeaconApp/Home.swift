@@ -214,19 +214,19 @@ struct Home: View {
 //            )
             .navigationBarBackButtonHidden(true)
             .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    NavigationLink (destination: NotesView()) {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink(destination: NotesView()) {
                         Image("writing")
                             .renderingMode(.template)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                            .foregroundColor(Color(red: 0.18, green: 0.12, blue: 0.28)
-                                .opacity(0.85))
+                            .foregroundColor(Color(red: 0.18, green: 0.12, blue: 0.28).opacity(0.85))
                             .frame(width: 24, height: 24)
-                            .padding()
+                            
                     }
                 }
             }
+
             .padding(.bottom, 60)
         }
         

@@ -17,7 +17,7 @@ struct AngryPage: View {
     
     var body: some View {
         
-        NavigationStack {
+        NavigationStack{
         ZStack {
             
             LinearGradient(
@@ -62,7 +62,7 @@ struct AngryPage: View {
                     
                     
                     VStack(alignment: .center, spacing: 15) {
-                        Text("**Your feelings are valid.** Let's handle them safely!.")
+                        Text("**Your feelings are valid.** Let's handle them safely!")
                             .font(.body)
                             .multilineTextAlignment(.center)
                         
@@ -172,5 +172,6 @@ struct AngryPage: View {
 }
 #Preview {
     AngryPage()
+        .environmentObject(sharedData())
 }
 

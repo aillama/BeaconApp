@@ -151,6 +151,7 @@ struct SadPage: View {
                     .onAppear {
                         currentQuote = quotes.randomElement() ?? ""
                         showQuote = true
+                        
                     }
                 }
                 }
