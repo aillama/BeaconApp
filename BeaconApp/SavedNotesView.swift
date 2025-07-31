@@ -56,6 +56,7 @@ struct SavedNotesView: View {
                 .background(Color.clear)
             }
         }
+        .navigationBarBackButtonHidden(true)
         .navigationTitle("Saved Notes")
         .toolbar {
             EditButton()

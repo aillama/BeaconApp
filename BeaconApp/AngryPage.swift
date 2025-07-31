@@ -35,19 +35,20 @@ struct AngryPage: View {
             ScrollView {
                 VStack(alignment: .center, spacing: 25) {
                     
-                    
-                    Text("beacon")
-                        .font(.system(size: 44, weight: .heavy, design: .rounded))
-                        .foregroundColor(.white)
-                        .padding(.vertical, 15)
-                        .padding(.horizontal, 60)
-                        .background(
-                            Color(red: 0.40, green: 0.18, blue: 0.22).opacity(0.9)
-                                .cornerRadius(25)
-                                .shadow(color: Color(red: 0.40, green: 0.18, blue: 0.22).opacity(0.5), radius: 10, x: 0, y: 5)
-                        )
-                        .padding(.top, 30)
-                        .frame(maxWidth: .infinity)
+                    NavigationLink (destination: Home()) {
+                        Text("beacon")
+                            .font(.system(size: 44, weight: .heavy, design: .rounded))
+                            .foregroundColor(.white)
+                            .padding(.vertical, 15)
+                            .padding(.horizontal, 60)
+                            .background(
+                                Color(red: 0.40, green: 0.18, blue: 0.22).opacity(0.9)
+                                    .cornerRadius(25)
+                                    .shadow(color: Color(red: 0.40, green: 0.18, blue: 0.22).opacity(0.5), radius: 10, x: 0, y: 5)
+                            )
+                            .padding(.top, 30)
+                            .frame(maxWidth: .infinity)
+                    }
                     
                     
                     
@@ -165,6 +166,7 @@ struct AngryPage: View {
                 }
                 }
             }
+        .navigationBarBackButtonHidden(true)
         }
     }
 }

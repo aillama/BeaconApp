@@ -69,7 +69,9 @@ struct immediateHelpPage: View {
                         
                     }
                     .padding(.bottom, 40)
-                } // VStack end
+                }
+            .navigationBarBackButtonHidden(true)
+// VStack end
             } // ZStack end
         } // NavigationStack end
     }

@@ -157,6 +157,8 @@ struct StressedPage: View {
                     }
                 }
             }
+        .navigationBarBackButtonHidden(true)
+
         }
     }
 }

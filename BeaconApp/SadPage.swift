@@ -155,6 +155,8 @@ struct SadPage: View {
                 }
                 }
             }
+        .navigationBarBackButtonHidden(true)
+
         }
     }
 }
