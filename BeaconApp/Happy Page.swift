@@ -173,6 +173,8 @@ struct HappyPage: View {
                     }
                 }
             }
+            .navigationBarBackButtonHidden(true)
+
         }
     }
 }

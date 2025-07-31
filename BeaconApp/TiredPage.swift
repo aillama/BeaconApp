@@ -127,6 +127,8 @@ struct TiredPage: View {
           }
         }
       }
+      .navigationBarBackButtonHidden(true)
+
     }
   }
 }
