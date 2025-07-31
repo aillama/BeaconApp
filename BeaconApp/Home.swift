@@ -39,18 +39,25 @@ struct Home: View {
                         .padding(.vertical, 15)
                         .padding(.horizontal, 60)
                         .background(
-                            Color.black.opacity(0.8)
+                            Color(red: 0.12, green: 0.06, blue: 0.18)
+                                .opacity(0.85)
                                 .cornerRadius(25)
-                                .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+                                .shadow(color: Color(red: 0.25, green: 0.15, blue: 0.1).opacity(0.5), radius: 10, x: 0, y: 5)
+
+
+                        
                         )
                         .padding(.top, 3)
                         .frame(maxWidth: .infinity)
                     
-                    HStack{
+                    HStack {
                         Text("Hello, \(sharedData.name)! How are you today?")
-                            .multilineTextAlignment(.leading)
+                            .font(.system(size: 24, weight: .semibold, design: .rounded))
+                            .foregroundColor(Color(red: 0.10, green: 0.18, blue: 0.12))
+                        
                     }
                     .padding()
+
                     
                     
                     //how to adjust space between buttons?
@@ -65,18 +72,19 @@ struct Home: View {
                         } label: {
                             VStack{
                                 Text("happy")
-                                    .font(.title3)
-                                    .foregroundColor(Color.black)
+                                    .font(.title2)
+                                    .foregroundColor(Color(red: 0.10, green: 0.18, blue: 0.12))
                                 Text("🙂")
-                                    .font(.title3)
+                                    .font(.title)
                             }
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 2)
-                                    .frame(width: 100, height: 60)
+                                    .stroke((Color(red: 0.10, green: 0.18, blue: 0.12)), lineWidth: 3)
+                                    .frame(width: 140, height: 80)
                                     .background(Color(.white))
                                     .cornerRadius(10)
+                                    .padding()
                             )
                             
                         }
@@ -89,16 +97,16 @@ struct Home: View {
                         NavigationLink(destination: SadPage()) {
                             VStack{
                                 Text("sad")
-                                    .font(.title3)
-                                    .foregroundColor(Color.black)
+                                    .font(.title2)
+                                    .foregroundColor(Color(red: 0.10, green: 0.18, blue: 0.12))
                                 Text("☹️")
-                                    .font(.title3)
+                                    .font(.title)
                             }
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 2)
-                                    .frame(width: 100, height: 60)
+                                    .stroke((Color(red: 0.10, green: 0.18, blue: 0.12)), lineWidth: 3)
+                                    .frame(width: 140, height: 80)
                                     .background(Color(.white))
                                     .cornerRadius(10)
                             )
@@ -109,16 +117,16 @@ struct Home: View {
                         NavigationLink(destination: StressedPage()) {
                             VStack{
                                 Text("stressed")
-                                    .font(.title3)
-                                    .foregroundColor(Color.black)
+                                    .font(.title2)
+                                    .foregroundColor(Color(red: 0.10, green: 0.18, blue: 0.12))
                                 Text("😰")
-                                    .font(.title3)
+                                    .font(.title)
                             }
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 2)
-                                    .frame(width: 100, height: 60)
+                                    .stroke((Color(red: 0.10, green: 0.18, blue: 0.12)), lineWidth: 3)
+                                    .frame(width: 140, height: 80)
                                     .background(Color(.white))
                                     .cornerRadius(10)
                             )
@@ -129,16 +137,16 @@ struct Home: View {
                         NavigationLink(destination: AngryPage()) {
                             VStack{
                                 Text("angry")
-                                    .font(.title3)
-                                    .foregroundColor(Color.black)
+                                    .font(.title2)
+                                    .foregroundColor(Color(red: 0.10, green: 0.18, blue: 0.12))
                                 Text("😡")
-                                    .font(.title3)
+                                    .font(.title)
                             }
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 2)
-                                    .frame(width: 100, height: 60)
+                                    .stroke((Color(red: 0.10, green: 0.18, blue: 0.12)), lineWidth: 3)
+                                    .frame(width: 140, height: 80)
                                     .background(Color(.white))
                                     .cornerRadius(10)
                             )
@@ -149,16 +157,16 @@ struct Home: View {
                         NavigationLink (destination: TiredPage()) {
                             VStack{
                                 Text("tired")
-                                    .font(.title3)
-                                    .foregroundColor(Color.black)
+                                    .font(.title2)
+                                    .foregroundColor(Color(red: 0.10, green: 0.18, blue: 0.12))
                                 Text("😴")
-                                    .font(.title3)
+                                    .font(.title)
                             }
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 2)
-                                    .frame(width: 100, height: 60)
+                                    .stroke((Color(red: 0.10, green: 0.18, blue: 0.12)), lineWidth: 3)
+                                    .frame(width: 140, height: 80)
                                     .background(Color(.white))
                                     .cornerRadius(10)
                             )
@@ -169,16 +177,16 @@ struct Home: View {
                         NavigationLink (destination: immediateHelpPage()) {
                             VStack{
                                 Text("SOS")
-                                    .font(.title3)
-                                    .foregroundColor(Color.black)
+                                    .font(.title2)
+                                    .foregroundColor(Color(red: 0.10, green: 0.18, blue: 0.12))
                                 Text("🆘")
-                                    .font(.title3)
+                                    .font(.title)
                             }
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.black, lineWidth: 2)
-                                    .frame(width: 100, height: 60)
+                                    .stroke((Color(red: 0.10, green: 0.18, blue: 0.12)), lineWidth: 3)
+                                    .frame(width: 140, height: 80)
                                     .background(Color(.white))
                                     .cornerRadius(10)
                             )

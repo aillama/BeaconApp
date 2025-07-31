@@ -24,6 +24,7 @@ struct NotesView: View {
     var body: some View {
         NavigationView {
             ZStack {
+            
                 RadialGradient(colors: [
                     Color("lightpink").opacity(0.9),
                     Color("lightyellow").opacity(0.9),
@@ -34,23 +35,26 @@ struct NotesView: View {
                 .ignoresSafeArea()
 
                 VStack(alignment: .leading, spacing: 16) {
-                    Text("Journal 🌟")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding(.top, 60)
-                        .frame(maxWidth: .infinity, alignment: .center)
 
                     Text("beacon")
-                        .font(.system(size: 34, weight: .heavy, design: .rounded))
-                        .foregroundColor(Color.lightpurple)
-                        .padding(.vertical, 8)
-                        .padding(.horizontal, 40)
+                        .font(.system(size: 44, weight: .heavy, design: .rounded))
+                        .foregroundColor(.white)
+                        .padding(.vertical, 15)
+                        .padding(.horizontal, 60)
                         .background(
-                            Color.white.opacity(0.5)
+                            Color(red: 0.30, green: 0.60, blue: 0.62)
+
                                 .cornerRadius(25)
-                                .shadow(color: Color.white.opacity(0.9), radius: 10, x: 0, y: 5)
+                                .shadow(color: Color(red: 0.55, green: 0.45, blue: 0.15).opacity(0.5), radius: 10, x: 0, y: 5)
                         )
+                        .frame(maxWidth: .infinity, alignment: .center)
+
+                    Text("Journal 📝")
+                        .font(.largeTitle)
+                        .font(.system(size: 24, weight: .bold, design: .rounded))
+                        .fontWeight(.bold)
+                        .foregroundColor(Color(red: 0.38, green: 0.42, blue: 0.60))
+                        .padding(.top, 10)
                         .frame(maxWidth: .infinity, alignment: .center)
 
                     ScrollView {
@@ -58,9 +62,10 @@ struct NotesView: View {
                             TextField("Type title here...", text: $noteTitle)
                                 .font(.system(size: 24, weight: .bold, design: .rounded))
                                 .padding()
-                                .background(Color.white.opacity(0.2))
+                                .background(Color.white)
                                 .cornerRadius(10)
                                 .padding(.horizontal)
+                            
 
                             TextEditor(text: $notesText)
                                 .padding()
@@ -80,12 +85,11 @@ struct NotesView: View {
                                     .foregroundColor(.white)
                                     .padding()
                                     .frame(maxWidth: .infinity)
-                                    .background(Color.green.opacity(0.8))
+                                    .background(Color(red: 0.50, green: 0.70, blue: 0.50))
                                     .cornerRadius(12)
                             }
                             .padding(.horizontal)
 
-                            // ✅ Pass binding to SavedNotesView
                             NavigationLink(destination: SavedNotesView(notes: $savedNotes), isActive: $navigateToSaved) {
                                 EmptyView()
                             }
@@ -99,7 +103,7 @@ struct NotesView: View {
                                     .foregroundColor(.white)
                                     .padding()
                                     .frame(maxWidth: .infinity)
-                                    .background(Color.purple.opacity(0.8))
+                                    .background(Color(red: 0.60, green: 0.40, blue: 0.78))
                                     .cornerRadius(12)
                             }
                             .padding(.horizontal)
@@ -109,6 +113,7 @@ struct NotesView: View {
                 }
                 .padding(.top, 10)
             }
+
             .navigationBarHidden(true)
             .onAppear(perform: loadNotes)
         }
