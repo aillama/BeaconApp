@@ -33,31 +33,33 @@ struct Home: View {
                 .ignoresSafeArea()
                 
                 VStack {
-                    Text("beacon")
-                        .font(.system(size: 44, weight: .heavy, design: .rounded))
-                        .foregroundColor(.white)
-                        .padding(.vertical, 15)
-                        .padding(.horizontal, 60)
-                        .background(
-                            Color(red: 0.18, green: 0.12, blue: 0.28)
-                                .opacity(0.85)
-
-                                .cornerRadius(25)
-                                .shadow(color: Color(red: 0.25, green: 0.15, blue: 0.1).opacity(0.5), radius: 10, x: 0, y: 5)
-
-
-                        
-                        )
-                        .padding(.top, 45)
-                        .frame(maxWidth: .infinity)
-                    
+                    NavigationLink (destination: Home()){
+                        Text("beacon")
+                            .font(.system(size: 44, weight: .heavy, design: .rounded))
+                            .foregroundColor(.white)
+                            .padding(.vertical, 15)
+                            .padding(.horizontal, 60)
+                            .background(
+                                Color(red: 0.18, green: 0.12, blue: 0.28)
+                                    .opacity(0.85)
+                                
+                                    .cornerRadius(25)
+                                    .shadow(color: Color(red: 0.25, green: 0.15, blue: 0.1).opacity(0.5), radius: 10, x: 0, y: 5)
+                                
+                                
+                                
+                            )
+                            .padding(.top, 45)
+                            .frame(maxWidth: .infinity)
+                    }
+                                        
                     HStack {
                         Text("Hello, \(sharedData.name)! How are you today?")
                             .font(.system(size: 24, weight: .semibold, design: .rounded))
                             .foregroundColor(Color(red: 0.10, green: 0.18, blue: 0.12))
                         
                     }
-                    .padding()
+                    
                     
 
                     
@@ -183,6 +185,8 @@ struct Home: View {
                                     .foregroundColor(Color(red: 0.10, green: 0.18, blue: 0.12))
                                 Text("🆘")
                                     .font(.title)
+                                
+                        
                             }
                             .padding()
                             .background(
@@ -207,15 +211,24 @@ struct Home: View {
 //                    .aspectRatio(contentMode: .fit)
 //                    .padding(4.0)
 //            )
+            .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {
-                    Image("phone-call")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding(4.0)
+                    NavigationLink (destination: NotesView()) {
+                        Image("writing")
+                            .renderingMode(.template)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .foregroundColor(Color(red: 0.18, green: 0.12, blue: 0.28)
+                                .opacity(0.85))
+                            .frame(width: 24, height: 24)
+                            .padding()
+                    }
                 }
             }
+            .padding(.bottom, 60)
         }
+        
         
         
     }
