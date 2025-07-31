@@ -137,6 +137,7 @@ struct NotesView: View {
 
 #Preview {
     NotesView()
+        .environmentObject(sharedData())
 }
 
 

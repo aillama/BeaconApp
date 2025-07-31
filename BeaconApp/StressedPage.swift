@@ -134,17 +134,18 @@ struct StressedPage: View {
                                         .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
                                 }
                                 
-                                
-                                Text("Need more support?")
-                                    .font(.headline)
-                                    .padding()
-                                    .frame(maxWidth: .infinity)
-                                    .background(Color.white.opacity(0.9))
-                                    .foregroundColor(Color(red: 0.25, green: 0.45, blue: 0.3))
-                                
-                                    .cornerRadius(15)
-                                    .padding(.horizontal)
-                                    .multilineTextAlignment(.center)
+                                NavigationLink (destination: immediateHelpPage()) {
+                                    Text("Need more support?")
+                                        .font(.headline)
+                                        .padding()
+                                        .frame(maxWidth: .infinity)
+                                        .background(Color.white.opacity(0.9))
+                                        .foregroundColor(Color(red: 0.25, green: 0.45, blue: 0.3))
+                                    
+                                        .cornerRadius(15)
+                                        .padding(.horizontal)
+                                        .multilineTextAlignment(.center)
+                                }
                                 
                             }
                         }
@@ -166,7 +167,7 @@ struct StressedPage: View {
 #Preview {
     NavigationStack{
         StressedPage()
-            //.environmentObject(sharedData()) // <- Inject dummy data for preview (from ChatGPT)
+            .environmentObject(sharedData()) // <- Inject dummy data for preview (from ChatGPT)
     }
 }
 
