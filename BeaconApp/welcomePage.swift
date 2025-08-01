@@ -54,7 +54,7 @@ struct welcomePage: View {
                     
                     Text("Hello! What is your name?")
                         .font(.title)
-                        .foregroundColor(Color(red: 0.12, green: 0.07, blue: 0.09))
+                        .foregroundColor(Color(red: 0.15, green: 0.08, blue: 0.18))
                         .padding()
 
                        
@@ -65,10 +65,11 @@ struct welcomePage: View {
                     
                     TextField("Type name here...", text: $tempInput)
                         .padding()
+                        .multilineTextAlignment(.center)
                     //this border allows you to round the corners; the commented border function doesn't let you round the corners
                         .background(
                             RoundedRectangle(cornerRadius: 15)
-                                .stroke(.black, lineWidth: 1)
+                                .stroke(Color(red: 0.15, green: 0.08, blue: 0.18), lineWidth: 2)
                                 .background(Color(.white))
                                 .cornerRadius(15)
                         )
