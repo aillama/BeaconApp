@@ -30,32 +30,35 @@ struct immediateHelpPage: View {
                                     Color(red: 0.45, green: 0.25, blue: 0.55)
                                         .cornerRadius(25)
                                         .shadow(color: Color(red: 0.55, green: 0.45, blue: 0.15).opacity(0.5), radius: 10, x: 0, y: 5)
-                                )
+                                    
+                                ) .padding(.top, 15)
                         }
                       VStack() {
-                        Text("Need immediate help? You are not")
+                        Text("Need immediate help? We're ")
+                          .font(.title2)
+                          .fontWeight(.bold)
+                          .foregroundColor(Color(red: 0.10, green: 0.05, blue: 0.12))
+                          .padding(.horizontal)
+                          .padding(.top, 10)
+                        Text("here to help you.")
                           .font(.title2)
                           .fontWeight(.bold)
                           .foregroundColor(.black)
                           .padding(.horizontal)
-                          .padding(.top, 12)
-                        Text("alone. We're here to help you.")
-                          .font(.title2)
-                          .fontWeight(.bold)
-                          .foregroundColor(.black)
-                          .padding(.horizontal)
-                      }
+                      } .multilineTextAlignment(.center)
+                            .padding(.bottom, -2)
                         VStack(spacing: 10) { //box vstack
                             Text("📞 Crisis Hotline: Dial 988")
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
-                                .padding(.vertical, 12)
+                                .padding(.vertical, 15)
+                                
                             Text("📱 Text Support: 741741")
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
-                                .padding(.bottom, 12)
+                                .padding(.bottom, 15)
                             
                             VStack{
                                 Text("☎️ Disaster Distress Helpline")
@@ -67,13 +70,13 @@ struct immediateHelpPage: View {
                                     .font(.title3)
                                     .fontWeight(.bold)
                                     .multilineTextAlignment(.center)
-                                    .padding(.bottom, 12)
+                                    .padding(.bottom, 15)
                             }
                             Text("📞 TrevorLifeline: 1-866-488-7386")
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .multilineTextAlignment(.center)
-                                .padding(.bottom, 12)
+                                .padding(.bottom, 15)
                             VStack{
                                 Text("🖥️ National Institute of Mental")
                                     .font(.title3)
@@ -83,11 +86,11 @@ struct immediateHelpPage: View {
                                     .font(.title3)
                                     .fontWeight(.bold)
                                     .multilineTextAlignment(.center)
-                                    .padding(.bottom, 12)
+                                    .padding(.bottom, 15)
                             }
                         }
                       .padding()
-                      .background(Color(.white).opacity(0.8))
+                      .background(Color(.white).opacity(0.9))
                       .cornerRadius(15)
                       .padding(.horizontal)
                       .padding([.top], 15)
@@ -98,16 +101,16 @@ struct immediateHelpPage: View {
                             .font(.headline)
                             .padding()
                             .background(Color.white.opacity(0.9))
-                            .foregroundColor(Color(red: 0.45, green: 0.25, blue: 0.55))
+                            .foregroundColor( Color(red: 0.10, green: 0.05, blue: 0.12))
                             .cornerRadius(15)
                             .padding(.horizontal)
                         }
                         Text("Remember, you are not alone")
                           .bold()
-                          .foregroundStyle(Color(.black))
+                          .foregroundStyle(Color(red: 0.10, green: 0.05, blue: 0.12))
                           .italic()
                       } // navlink vstack closure
-                      .padding(.bottom, 40)
+                      .padding(.bottom, 30)
                     } //large vstack closure
                   } //ZStack closure
                 } //navigation stack closure

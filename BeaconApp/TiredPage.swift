@@ -1,4 +1,5 @@
 import SwiftUI
+
 struct TiredPage: View {
   let quotes = [
     "Sometimes the most productive thing you can do is relax.",
@@ -11,6 +12,7 @@ struct TiredPage: View {
   ]
   @State private var currentQuote = ""
   @State private var showQuote = false
+
   var body: some View {
     NavigationStack{
       ZStack {
@@ -26,6 +28,22 @@ struct TiredPage: View {
         .ignoresSafeArea()
         ScrollView {
           VStack(alignment: .center, spacing: 25) {
+
+            
+            HStack {
+              NavigationLink(destination: Home()) {
+                HStack(spacing: 4) {
+                  Image(systemName: "chevron.left")
+                  Text("Home")
+                }
+                .foregroundColor(Color(red: 0.15, green: 0.08, blue: 0.18))
+                .font(.headline)
+              }
+              Spacer()
+            }
+            .padding(.horizontal)
+            .padding(.top, -5)
+
             NavigationLink (destination: Home()) {
               Text("beacon")
                 .font(.system(size: 44, weight: .heavy, design: .rounded))
@@ -37,7 +55,7 @@ struct TiredPage: View {
                     .cornerRadius(25)
                     .shadow(color: Color(red: 0.30, green: 0.14, blue: 0.30).opacity(0.5), radius: 10, x: 0, y: 5)
                 )
-                .padding(.top, 30)
+                .padding(.top, -5)
                 .frame(maxWidth: .infinity)
             }
             Text("Let's take some time to recharge together!")
@@ -53,14 +71,14 @@ struct TiredPage: View {
               Text("5 Quick Tips:")
                 .font(.headline)
                 .frame(maxWidth: .infinity, alignment: .center)
-              Text(":relieved:  Try a 5-minute nap or lie down")
+              Text("😌  Try a 5-minute nap or lie down")
               VStack(alignment: .leading, spacing: 0) {
-                Text(":notebook:  Write down what's tiring you and ")
+                Text("📓  Write down what's tiring you and ")
                 Text("     come up with a plan to tackle it")
               }
-              Text(":walking:  Try some gentle movement")
-              Text(":sunny:  Take a break and get some sunlight")
-              Text(":woman-gesturing-no:  Cancel plans if needed")
+              Text("🚶  Try some gentle movement")
+              Text("☀️  Take a break and get some sunlight")
+              Text("🙅‍♀️  Cancel plans if needed")
             }
             .padding()
             .frame(maxWidth: .infinity)
@@ -68,76 +86,89 @@ struct TiredPage: View {
             .cornerRadius(20)
             .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
             .padding(.horizontal)
-            VStack(spacing: 10) {
-              Text("Quote of the Moment")
-                .font(.headline)
-                .fontWeight(.bold)
-                .foregroundColor(Color(red: 0.15, green: 0.07, blue: 0.08))
-              Text(currentQuote)
-                .font(.body)
-                .italic()
-                .multilineTextAlignment(.center)
-                .padding(.horizontal)
-                .opacity(showQuote ? 1 : 0)
-                .animation(.easeIn(duration: 0.5), value: showQuote)
-              Button(action: {
-                showQuote = false
-                withAnimation(.easeIn(duration: 0.3)) {
-                  currentQuote = quotes.randomElement() ?? ""
-                  showQuote = true
-                }
-              }) {
-                Text("Get another quote")
-                  .font(.headline)
-                  .padding()
-                  .frame(maxWidth: .infinity)
-                  .background(Color.white.opacity(0.9))
-                  .foregroundColor(Color(red: 0.45, green: 0.25, blue: 0.55))
-                  .cornerRadius(15)
-                  .padding(.horizontal)
-                  .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
-              }
-              VStack(spacing: 15) {
-                NavigationLink (destination: NotesView()) {
-                  Text("Need to write something down?")
-                    .font(.headline)
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.white.opacity(0.9))
-                    .foregroundColor(Color(red: 0.45, green: 0.25, blue: 0.55))
-                    .cornerRadius(15)
-                    .padding(.horizontal)
-                }
+              VStack(spacing: 10) {
+                  Text("Quote of the Moment")
+                      .font(.headline)
+                      .fontWeight(.bold)
+                      .foregroundColor(Color(red: 0.15, green: 0.07, blue: 0.08))
+                      .padding(.top, -15)
                   
-                  NavigationLink (destination: immediateHelpPage()) {
-                      Text("Need more support?")
+                  
+                  Text(currentQuote)
+                      .font(.body)
+                      .italic()
+                  
+                      .multilineTextAlignment(.center)
+                      .padding(.horizontal)
+                      .opacity(showQuote ? 1 : 0)
+                      .animation(.easeIn(duration: 0.5), value: showQuote)
+                      .padding(.bottom, 15)
+                  Button(action: {
+                      showQuote = false
+                      withAnimation(.easeIn(duration: 0.3)) {
+                          currentQuote = quotes.randomElement() ?? ""
+                          showQuote = true
+                      }
+                  }) {
+                      Text("Get another quote")
                           .font(.headline)
                           .padding()
                           .frame(maxWidth: .infinity)
                           .background(Color.white.opacity(0.9))
-                          .foregroundColor(Color(red: 0.45, green: 0.25, blue: 0.55))
+                          .foregroundColor(Color(red: 0.15, green: 0.08, blue: 0.18))
+                      
+                      
                           .cornerRadius(15)
                           .padding(.horizontal)
-                          .multilineTextAlignment(.center)
+                          .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
+                  }
+                  
+                  
+                  
+                  VStack(spacing: 10) {
+                      
+                      NavigationLink (destination: NotesView()) {
+                          Text("Need to write something down?")
+                              .font(.headline)
+                              .padding()
+                              .frame(maxWidth: .infinity)
+                              .background(Color.white.opacity(0.9))
+                              .foregroundColor(Color(red: 0.15, green: 0.08, blue: 0.18))
+                          
+                          
+                              .cornerRadius(15)
+                              .padding(.horizontal)
+                      }
+                      
+                      NavigationLink (destination: immediateHelpPage()) {
+                          Text("Need more support?")
+                              .font(.headline)
+                              .padding()
+                              .frame(maxWidth: .infinity)
+                              .background(Color.white.opacity(0.9))
+                              .foregroundColor(Color(red: 0.15, green: 0.08, blue: 0.18))
+                          
+                          
+                              .cornerRadius(15)
+                              .padding(.horizontal)
+                              .multilineTextAlignment(.center)
+                      }
                   }
               }
               .padding()
               .onAppear {
-                currentQuote = quotes.randomElement() ?? ""
-                showQuote = true
+                  currentQuote = quotes.randomElement() ?? ""
+                  showQuote = true
               }
-            }
           }
-        }
+          }
       }
-      .navigationBarBackButtonHidden(true)
-
-    }
+  .navigationBarBackButtonHidden(true)
   }
 }
+}
+
 #Preview {
   TiredPage()
         .environmentObject(sharedData())
 }
-
-

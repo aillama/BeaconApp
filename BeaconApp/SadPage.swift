@@ -17,151 +17,154 @@ struct SadPage: View {
     
     var body: some View {
         
-        NavigationStack{
-        ZStack {
-            
-            LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(red: 0.60, green: 0.77, blue: 0.94),
-                    Color(red: 0.45, green: 0.63, blue: 0.82),
-                    Color(red: 0.30, green: 0.48, blue: 0.69)
-                ]),
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
-            
-            ScrollView {
-                VStack(alignment: .center, spacing: 25) {
-                    
-                    NavigationLink (destination: Home()){
-                        Text("beacon")
-                            .font(.system(size: 44, weight: .heavy, design: .rounded))
-                            .foregroundColor(.white)
-                            .padding(.vertical, 15)
-                            .padding(.horizontal, 60)
-                            .background(
-                                Color.black.opacity(0.6)
-                                    .cornerRadius(25)
-                                    .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
-                            )
-                            .padding(.top, 30)
-                            .frame(maxWidth: .infinity)
-                    }
-                    
-                    
-                    Text("It's okay to feel down sometimes. Take things at your own pace.")
-                        .font(.system(.body, design: .rounded))
-                        .fontWeight(.bold)
-                        .foregroundColor(Color(red: 0.05, green: 0.07, blue: 0.1))
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, 30)
-                    
-                    
-                    VStack(alignment: .center, spacing: 15) {
-                        Text("**You matter.** This feeling won't last forever.")
-                            .font(.body)
-                            .multilineTextAlignment(.center)
+        NavigationStack {
+            ZStack {
+                
+                LinearGradient(
+                    gradient: Gradient(colors: [
+                        Color(red: 0.60, green: 0.77, blue: 0.94),
+                        Color(red: 0.45, green: 0.63, blue: 0.82),
+                        Color(red: 0.30, green: 0.48, blue: 0.69)
+                    ]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+                .ignoresSafeArea()
+                
+                ScrollView {
+                    VStack(alignment: .center, spacing: 25) {
                         
+                       
+                        HStack {
+                            NavigationLink(destination: Home()) {
+                                HStack(spacing: 4) {
+                                    Image(systemName: "chevron.left")
+                                    Text("Home")
+                                }
+                                .foregroundColor(Color(red: 0.05, green: 0.07, blue: 0.1))
+                                .font(.headline)
+                            }
+                            Spacer()
+                        }
+                        .padding(.horizontal)
+                        .padding(.top, -5)
                         
-                        Text("5 Quick Tips:")
-                            .font(.headline)
-                            .frame(maxWidth: .infinity, alignment: .center)
+                        NavigationLink(destination: Home()){
+                            Text("beacon")
+                                .font(.system(size: 44, weight: .heavy, design: .rounded))
+                                .foregroundColor(.white)
+                                .padding(.vertical, 15)
+                                .padding(.horizontal, 60)
+                                .background(
+                                    Color.black.opacity(0.6)
+                                        .cornerRadius(25)
+                                        .shadow(color: Color.black.opacity(0.3), radius: 10, x: 0, y: 5)
+                                )
+                                .padding(.top, -5)
+                                .frame(maxWidth: .infinity)
+                        }
                         
-                        
-                        Text("🛌   Take some time for you to rest")
-                        Text("📱   Call someone who will support you")
-                        Text("🚶‍♀️   Go on a walk outside")
-                        Text("🎨   Spend time on an activity you enjoy")
-                        Text("✍️   Write about what's bothering you")
-                    }
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color(red: 0.85, green: 0.90, blue: 0.95))
-                    .cornerRadius(20)
-                    .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
-                    .padding(.horizontal)
-                    
-                    
-                    VStack(spacing: 10) {
-                        Text("Quote of the Moment")
-                            .font(.headline)
+                        Text("It's okay to feel down sometimes. Take things at your own pace.")
+                            .font(.system(.body, design: .rounded))
                             .fontWeight(.bold)
                             .foregroundColor(Color(red: 0.05, green: 0.07, blue: 0.1))
-                        
-                        
-                        Text(currentQuote)
-                            .font(.body)
-                            .italic()
-                        
                             .multilineTextAlignment(.center)
-                            .padding(.horizontal)
-                            .opacity(showQuote ? 1 : 0)
-                            .animation(.easeIn(duration: 0.5), value: showQuote)
-                        Button(action: {
-                            showQuote = false
-                            withAnimation(.easeIn(duration: 0.3)) {
-                                currentQuote = quotes.randomElement() ?? ""
-                                showQuote = true
-                            }
-                        }) {
-                            Text("Get another quote")
+                            .padding(.horizontal, 30)
+                        
+                        VStack(alignment: .center, spacing: 15) {
+                            Text("**You matter.** This feeling won't last forever.")
+                                .font(.body)
+                                .multilineTextAlignment(.center)
+                            
+                            Text("5 Quick Tips:")
                                 .font(.headline)
-                                .padding()
-                                .frame(maxWidth: .infinity)
-                                .background(Color.white.opacity(0.9))
-                                .foregroundColor(Color(red: 0.2, green: 0.35, blue: 0.6))
+                                .frame(maxWidth: .infinity, alignment: .center)
                             
-                                .cornerRadius(15)
+                            Text("🛌   Take some time for you to rest")
+                            Text("📱   Call someone who will support you")
+                            Text("🚶‍♀️   Go on a walk outside")
+                            Text("🎨   Spend time on an activity you enjoy")
+                            Text("✍️   Write about what's bothering you")
+                        }
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color(red: 0.85, green: 0.90, blue: 0.95))
+                        .cornerRadius(20)
+                        .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+                        .padding(.horizontal)
+                        
+                        VStack(spacing: 10) {
+                            Text("Quote of the Moment")
+                                .font(.headline)
+                                .fontWeight(.bold)
+                                .foregroundColor(Color(red: 0.15, green: 0.07, blue: 0.08))
+                                .padding(.top, -15)
+                            
+                            Text(currentQuote)
+                                .font(.body)
+                                .italic()
+                                .multilineTextAlignment(.center)
                                 .padding(.horizontal)
-                                .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
-                        }
-                        
-                        
-                        
-                        VStack(spacing: 15) {
+                                .opacity(showQuote ? 1 : 0)
+                                .animation(.easeIn(duration: 0.5), value: showQuote)
+                                .padding(.bottom, 15)
                             
-                            NavigationLink (destination: NotesView()) {
-                                Text("Need to write something down?")
+                            Button(action: {
+                                showQuote = false
+                                withAnimation(.easeIn(duration: 0.3)) {
+                                    currentQuote = quotes.randomElement() ?? ""
+                                    showQuote = true
+                                }
+                            }) {
+                                Text("Get another quote")
                                     .font(.headline)
                                     .padding()
                                     .frame(maxWidth: .infinity)
                                     .background(Color.white.opacity(0.9))
-                                    .foregroundColor(Color(red: 0.2, green: 0.35, blue: 0.6))
-                                
+                                    .foregroundColor(Color(red: 0.05, green: 0.07, blue: 0.1))
                                     .cornerRadius(15)
                                     .padding(.horizontal)
+                                    .shadow(color: Color.black.opacity(0.2), radius: 6, x: 0, y: 4)
                             }
                             
-                            
-                            NavigationLink (destination: immediateHelpPage()) {
-                                Text("Need more support?")
-                                    .font(.headline)
-                                    .padding()
-                                    .frame(maxWidth: .infinity)
-                                    .background(Color.white.opacity(0.9))
-                                    .foregroundColor(Color(red: 0.2, green: 0.35, blue: 0.6))
+                            VStack(spacing: 10) {
+                                NavigationLink(destination: NotesView()) {
+                                    Text("Need to write something down?")
+                                        .font(.headline)
+                                        .padding()
+                                        .frame(maxWidth: .infinity)
+                                        .background(Color.white.opacity(0.9))
+                                        .foregroundColor(Color(red: 0.05, green: 0.07, blue: 0.1))
+                                        .cornerRadius(15)
+                                        .padding(.horizontal)
+                                }
                                 
-                                    .cornerRadius(15)
-                                    .padding(.horizontal)
-                                    .multilineTextAlignment(.center)
+                                NavigationLink(destination: immediateHelpPage()) {
+                                    Text("Need more support?")
+                                        .font(.headline)
+                                        .padding()
+                                        .frame(maxWidth: .infinity)
+                                        .background(Color.white.opacity(0.9))
+                                        .foregroundColor(Color(red: 0.05, green: 0.07, blue: 0.1))
+                                        .cornerRadius(15)
+                                        .padding(.horizontal)
+                                        .multilineTextAlignment(.center)
+                                }
                             }
                         }
+                        .padding()
+                        .onAppear {
+                            currentQuote = quotes.randomElement() ?? ""
+                            showQuote = true
+                        }
                     }
-                    .padding()
-                    .onAppear {
-                        currentQuote = quotes.randomElement() ?? ""
-                        showQuote = true
-                        
-                    }
-                }
                 }
             }
-        .navigationBarBackButtonHidden(true)
-
+            .navigationBarBackButtonHidden(true)
         }
     }
 }
+
 #Preview {
     SadPage()
         .environmentObject(sharedData())

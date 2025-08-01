@@ -2,6 +2,8 @@ import SwiftUI
 
 struct SavedNotesView: View {
     @Binding var notes: [Note]
+    @Environment(\.presentationMode) var presentationMode
+    @State private var isEditing = false
 
     var body: some View {
         ZStack {
@@ -16,8 +18,9 @@ struct SavedNotesView: View {
 
             if notes.isEmpty {
                 Text("No saved notes yet.")
-                    .foregroundColor(.black)
+                    .foregroundColor(Color(red: 0.38, green: 0.42, blue: 0.60))
                     .font(.title3)
+                    .fontWeight(.semibold)
                     .italic()
                     .padding()
             } else {
@@ -27,15 +30,14 @@ struct SavedNotesView: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text(note.title)
                                     .font(.headline)
-                                    .foregroundColor(Color(red: 0.28, green: 0.32, blue: 0.48))
+                                    .foregroundColor(Color(red: 0.18, green: 0.05, blue: 0.25))
 
                                 Text(note.text)
                                     .font(.subheadline)
-                                    .foregroundColor(Color(red: 0.45, green: 0.45, blue: 0.50))
+                                    .foregroundColor(Color(red: 0.38, green: 0.42, blue: 0.60))
                                     .lineLimit(3)
                             }
                             Spacer()
-
                             Button(action: {
                                 toggleFavorite(note)
                             }) {
@@ -50,8 +52,8 @@ struct SavedNotesView: View {
                         .background(Color.white.opacity(0.85))
                         .cornerRadius(12)
                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
-                        .listRowBackground(Color.clear)
                         .listRowInsets(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+                        .listRowBackground(Color.clear)
                     }
                     .onDelete(perform: deleteNote)
                 }
@@ -59,18 +61,53 @@ struct SavedNotesView: View {
                 .background(Color.clear)
             }
         }
-        .navigationTitle("Saved Notes")
+        .navigationBarBackButtonHidden(true)
         .toolbar {
-            EditButton()
+            // Custom Home button
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    HStack(spacing: 4) {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(Color(red: 0.18, green: 0.05, blue: 0.25))
+
+                        Text("Home")
+                            .foregroundColor(Color(red: 0.18, green: 0.05, blue: 0.25))
+                            .fontWeight(.semibold)
+                    }
+                    .padding(.top, 10)
+                }
+            }
+
+            // Custom title
+            ToolbarItem(placement: .principal) {
+                Text("Saved Notes")
+                    .foregroundColor(Color(red: 0.18, green: 0.05, blue: 0.25))
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .padding(.top, 10)
+            }
+
+            // Custom Edit button
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: {
+                    isEditing.toggle()
+                }) {
+                    Text(isEditing ? "Done" : "Edit")
+                        .foregroundColor(Color(red: 0.18, green: 0.05, blue: 0.25))
+                        .fontWeight(.semibold)
+                }
+                .padding(.top, 10)
+            }
         }
+        .environment(\.editMode, .constant(isEditing ? .active : .inactive))
     }
 
-    /// Sorts favorites to the top
     var sortedNotes: [Note] {
         notes.sorted { $0.isFavorite && !$1.isFavorite }
     }
 
-    /// Toggle favorite status for a given note
     func toggleFavorite(_ note: Note) {
         if let index = notes.firstIndex(where: { $0.id == note.id }) {
             notes[index].isFavorite.toggle()
@@ -78,22 +115,14 @@ struct SavedNotesView: View {
         }
     }
 
-    /// Delete selected notes
     func deleteNote(at offsets: IndexSet) {
         notes.remove(atOffsets: offsets)
         saveNotes()
     }
 
-    /// Save notes to UserDefaults
     private func saveNotes() {
         if let encoded = try? JSONEncoder().encode(notes) {
             UserDefaults.standard.set(encoded, forKey: "savedNotes")
         }
     }
 }
-
-
-
-
-
-

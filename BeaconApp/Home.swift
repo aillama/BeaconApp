@@ -49,7 +49,8 @@ struct Home: View {
                                 
                                 
                             )
-                            .padding(.top, 45)
+                            .padding(.top, 60)
+                            .padding(.bottom, -9)
                             .frame(maxWidth: .infinity)
                     }
                                         
@@ -224,12 +225,13 @@ struct Home: View {
                             .aspectRatio(contentMode: .fit)
                             .foregroundColor(Color(red: 0.18, green: 0.12, blue: 0.28).opacity(0.85))
                             .frame(width: 24, height: 24)
+                            .padding(.top, 40)
                             
                     }
                 }
             }
 
-            .padding(.bottom, 60)
+            .padding(.bottom, 40)
         }
         
         
